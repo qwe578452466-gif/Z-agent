@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.3",
+  "run_id": "run-softmax-example",
+  "task_id": "task-softmax-001",
+  "attempt": 1,
+  "updated_at": "2026-10-13T00:00:00Z",
+  "completed_actions": [],
+  "remaining_actions": [
+    "明确目标、工具链和验收输入。",
+    "完成并验证所需 Skill 实现。",
+    "根据真实能力重新检查任务规格；范围改变时创建新任务。",
+    "由负责专家总结并确认一版适用 SOP。"
+  ],
+  "side_effects": []
+}

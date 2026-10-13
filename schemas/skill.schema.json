@@ -1,0 +1,423 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://z-agent.invalid/schemas/0.3/skill.schema.json",
+  "title": "Z-agent skill manifest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.3"
+    },
+    "id": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/skill_id"
+    },
+    "version": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/version"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "documentation",
+        "workflow",
+        "domain"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "experimental",
+        "validated",
+        "retired"
+      ]
+    },
+    "entrypoint": {
+      "const": "SKILL.md"
+    },
+    "activation": {
+      "type": "object",
+      "properties": {
+        "when": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "unless": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "when",
+        "unless"
+      ],
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "artifact",
+              "text",
+              "json",
+              "number",
+              "boolean"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema_path": {
+            "anyOf": [
+              {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "required",
+          "description",
+          "schema_path"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "artifact",
+              "text",
+              "json",
+              "number",
+              "boolean"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema_path": {
+            "anyOf": [
+              {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "required",
+          "description",
+          "schema_path"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/capability"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version_constraint": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "name",
+              "version_constraint"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "environment_variables": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "capabilities",
+        "tools",
+        "environment_variables"
+      ],
+      "additionalProperties": false
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/skill_id"
+          },
+          "version_constraint": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "version_constraint"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/source"
+      },
+      "minItems": 0
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "positive_cases": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "negative_cases": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "boundary_cases": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "engineering_cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "case_id": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+              },
+              "target": {
+                "type": "string",
+                "minLength": 1
+              },
+              "definition_path": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+              },
+              "evidence_path": {
+                "anyOf": [
+                  {
+                    "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "planned",
+                  "passed",
+                  "failed",
+                  "blocked"
+                ]
+              }
+            },
+            "required": [
+              "case_id",
+              "target",
+              "definition_path",
+              "evidence_path",
+              "status"
+            ],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "passed"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "evidence_path": {
+                      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/package_path"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "positive_cases",
+        "negative_cases",
+        "boundary_cases",
+        "engineering_cases"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "kind",
+    "status",
+    "entrypoint",
+    "activation",
+    "inputs",
+    "outputs",
+    "requirements",
+    "depends_on",
+    "sources",
+    "validation"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "validated"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "validation": {
+            "properties": {
+              "positive_cases": {
+                "minItems": 1
+              },
+              "negative_cases": {
+                "minItems": 1
+              },
+              "boundary_cases": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "validated"
+          },
+          "kind": {
+            "const": "domain"
+          }
+        },
+        "required": [
+          "status",
+          "kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "validation": {
+            "properties": {
+              "engineering_cases": {
+                "minItems": 1,
+                "contains": {
+                  "properties": {
+                    "status": {
+                      "const": "passed"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "minContains": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://z-agent.invalid/schemas/0.3/roles.schema.json",
+  "title": "Z-agent expert role registry",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.3"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/role_id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "responsibilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "writable_artifact_kinds": {
+            "type": "array",
+            "items": {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/artifact_kind"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "forbidden_actions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "independent_review": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "responsibilities",
+          "writable_artifact_kinds",
+          "forbidden_actions",
+          "independent_review"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "id": {
+                  "const": "independent-reviewer"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            },
+            "then": {
+              "properties": {
+                "independent_review": {
+                  "const": true
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "independent_review": {
+                  "const": false
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 6,
+      "maxItems": 6
+    }
+  },
+  "required": [
+    "schema_version",
+    "roles"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "properties": {
+        "roles": {
+          "contains": {
+            "properties": {
+              "id": {
+                "const": "main-orchestrator"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "roles": {
+          "contains": {
+            "properties": {
+              "id": {
+                "const": "design-documentation-expert"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "roles": {
+          "contains": {
+            "properties": {
+              "id": {
+                "const": "mlir-compiler-expert"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "roles": {
+          "contains": {
+            "properties": {
+              "id": {
+                "const": "npu-rvv-expert"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "roles": {
+          "contains": {
+            "properties": {
+              "id": {
+                "const": "baremetal-runtime-expert"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "roles": {
+          "contains": {
+            "properties": {
+              "id": {
+                "const": "independent-reviewer"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      }
+    }
+  ]
+}

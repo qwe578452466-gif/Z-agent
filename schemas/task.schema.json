@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://z-agent.invalid/schemas/0.3/task.schema.json",
+  "title": "Z-agent task specification",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.3"
+    },
+    "task_id": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+    },
+    "run_id": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "development",
+        "skill_validation",
+        "design"
+      ]
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_role": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/role_id"
+    },
+    "skill_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/skill_id"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/version"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "version"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "depends_on": {
+      "type": "array",
+      "items": {
+        "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/artifact"
+      },
+      "minItems": 0
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/artifact_kind"
+          },
+          "path": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "kind",
+          "path",
+          "required"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "repository_path": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+        },
+        "base_revision": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/revision"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "write_paths": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "read_only_paths": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "repository_path",
+        "base_revision",
+        "write_paths",
+        "read_only_paths",
+        "constraints"
+      ],
+      "additionalProperties": false
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/capability"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_method": {
+            "type": "string",
+            "enum": [
+              "test",
+              "functional_check",
+              "document_review",
+              "static_check",
+              "benchmark"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "verification_method",
+          "required"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "contains": {
+        "properties": {
+          "required": {
+            "const": true
+          }
+        },
+        "required": [
+          "required"
+        ]
+      },
+      "minContains": 1
+    },
+    "failure_policy": {
+      "type": "object",
+      "properties": {
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "automatic_retry": {
+          "const": "transient_only"
+        },
+        "escalation_role": {
+          "const": "main-orchestrator"
+        }
+      },
+      "required": [
+        "max_attempts",
+        "automatic_retry",
+        "escalation_role"
+      ],
+      "additionalProperties": false
+    },
+    "sop_ref": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/sop_ref"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "run_id",
+    "mode",
+    "goal",
+    "owner_role",
+    "skill_refs",
+    "depends_on",
+    "inputs",
+    "outputs",
+    "scope",
+    "required_capabilities",
+    "acceptance_criteria",
+    "failure_policy",
+    "sop_ref"
+  ],
+  "additionalProperties": false
+}

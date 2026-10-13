@@ -1,0 +1,756 @@
+{
+  "schema_version": "0.4",
+  "record_kind": "z-interview-working-draft",
+  "interview_id": "interview-z-brainstorming",
+  "skill_id": "Z-brainstorming",
+  "owner_role": null,
+  "candidate_runtime_owner_role": "design-documentation-expert",
+  "candidate_role_status": "registry_draft_not_confirmed",
+  "status": "paused",
+  "recorded_at": "2026-10-13T10:30:23Z",
+  "interview_method_reference": {
+    "path": "docs/requirements/skills/Z-deep-interview.md",
+    "confirmed_by": "DI-Q019",
+    "threading": "single",
+    "expert_interview_execution": false,
+    "purpose": "沿用已确认访谈方法；Z-brainstorming 是被定义对象，不表示执行该 Skill。"
+  },
+  "profile": "deep",
+  "threshold": 0.15,
+  "max_rounds": null,
+  "round_policy": {
+    "confirmed_by": "DI-Q016",
+    "review_round": 20,
+    "hard_max_rounds": null,
+    "on_unresolved_at_review": "continue_deeper_interview",
+    "automatic_stop_at_review": false,
+    "preserve_cumulative_rounds": true,
+    "preserve_question_and_answer_history": true,
+    "continuation_execution": "same_standalone_single_thread",
+    "depth_focus": "围绕关键未决项继续解释背景、依赖和取舍，主动指出缺口并引导补齐。"
+  },
+  "current_round": 5,
+  "completed_user_rounds": 4,
+  "answered_questions": 4,
+  "total_questions_issued": 5,
+  "current_stage": "adversarial-review-convergence",
+  "current_focus": "success",
+  "current_assessment_id": "clarity-BS-005",
+  "assessments": [
+    {
+      "id": "clarity-BS-001",
+      "assessed_at": "2026-10-13T09:35:31Z",
+      "kind": "model_estimate",
+      "basis": "只依据原规划形成初始基线；没有本 Skill 的用户回答，不把登记草案当作已确认。",
+      "type": "greenfield",
+      "type_rationale": "当前定义新的 Skill，本库没有其实现。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.65,
+          "justification": "原规划已有多方案探索与设计取舍方向。",
+          "gap": "实际使用场景、主要问题与价值待明确。",
+          "evidence": [
+            "user-planning-report"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.45,
+          "justification": "已有方案探索和审批方向。",
+          "gap": "具体产物、收敛结果与审批含义未确认。",
+          "evidence": [
+            "user-planning-report"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.3,
+          "justification": "处于文档与需求类 P0 规划。",
+          "gap": "与访谈、设计文档的边界及运行方式未确认。",
+          "evidence": [
+            "user-planning-report"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.35,
+          "justification": "已确认通用 Z- 命名和逐项需求访谈方式。",
+          "gap": "本 Skill 的输入、工具、执行与异常规则未确认。",
+          "evidence": [
+            "confirmed-interview-method",
+            "user-planning-report"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.25,
+          "justification": "整体规划要求明确契约与验证方向。",
+          "gap": "本 Skill 的完成标准与具体需求总结尚未形成。",
+          "evidence": [
+            "user-planning-report"
+          ]
+        }
+      ],
+      "clarity": 0.445,
+      "ambiguity": 0.555
+    },
+    {
+      "id": "clarity-BS-002",
+      "assessed_at": "2026-10-13T09:50:56Z",
+      "kind": "model_estimate",
+      "basis": "Round 1 明确以已提供需求为基础，进行合理性/漏洞讨论与实际可行方案探索，带来思路并推进设计；更新 intent、outcome 和 scope，保留代表任务与其他未决项。",
+      "type": "greenfield",
+      "type_rationale": "当前定义新的 Skill，本库没有其实现。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "帮助用户在提供需求后审视合理性和漏洞，获得实际可行方案及新思路，以推进设计。",
+          "gap": "实际任务、典型卡点和优先价值仍需明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.65,
+          "justification": "结果方向包含需求问题识别、可行方案与思路，支持后续设计。",
+          "gap": "具体材料、方案探索深度、收敛结果与审批含义仍未确认。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.45,
+          "justification": "以用户已提供的需求为基础，同时讨论其合理性与漏洞，不仅列出选项。",
+          "gap": "输入要求、运行方式、与需求修订及设计文档的关系仍需明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.35,
+          "justification": "已确认通用 Z- 命名和逐项需求访谈方式。",
+          "gap": "本 Skill 的输入、工具、执行与异常规则未确认。",
+          "evidence": [
+            "confirmed-interview-method",
+            "user-planning-report"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.25,
+          "justification": "整体规划要求明确契约与验证方向。",
+          "gap": "本 Skill 的完成标准与具体需求总结尚未形成。",
+          "evidence": [
+            "user-planning-report"
+          ]
+        }
+      ],
+      "clarity": 0.585,
+      "ambiguity": 0.415
+    },
+    {
+      "id": "clarity-BS-003",
+      "assessed_at": "2026-10-13T10:02:37Z",
+      "kind": "model_estimate",
+      "basis": "Round 2 明确陌生任务、用户手动触发、Skill 主动发现问题及上游优先复用；不再把用户提供具体卡点作为进入条件。",
+      "type": "greenfield",
+      "type_rationale": "当前定义新的 Skill，本库没有其实现。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.95,
+          "justification": "明确陌生任务中由 Skill 帮助发现需求漏洞、边界与可行方向。",
+          "gap": "探索深度仍需明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.65,
+          "justification": "方案与新思路方向已明确，具体产物仍待讨论。",
+          "gap": "收敛结果与产物形式待明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.6,
+          "justification": "手动触发、面向陌生任务，不要求用户预先识别卡点。",
+          "gap": "需求修订与设计文档的边界待明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.55,
+          "justification": "明确按规划报告优先研究并复用成熟上游方法。",
+          "gap": "输入要求、工具与异常规则待明确。",
+          "evidence": [
+            "confirmed-interview-method",
+            "user-planning-report",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.25,
+          "justification": "本项完成标准仍未明确。",
+          "gap": "方案确认和完成条件待明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q002"
+          ]
+        }
+      ],
+      "clarity": 0.675,
+      "ambiguity": 0.325
+    },
+    {
+      "id": "clarity-BS-004",
+      "assessed_at": "2026-10-13T10:12:08Z",
+      "kind": "model_estimate",
+      "basis": "Round 3 明确 Z-brainstorming 负责设计并调用 Z-design-document 生成文档；后者提供写作 SOP，本身不参与设计。交付物和职责分工更明确，完成标准与异常规则仍待访谈。",
+      "type": "greenfield",
+      "type_rationale": "当前定义新的 Skill，本库没有其实现。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.95,
+          "justification": "明确陌生任务中由 Skill 帮助发现需求漏洞、边界与可行方向。",
+          "gap": "探索深度仍需明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.85,
+          "justification": "设计完成后按 Z-design-document 规范交付合规、可读的设计文档。",
+          "gap": "具体文档要求将在该 Skill 的独立访谈明确；当前设计收敛标准仍待确认。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002",
+            "BS-Q003"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.75,
+          "justification": "设计由 Z-brainstorming 负责，Z-design-document 只规范文档编写。",
+          "gap": "需求修订、设计深度与实现边界仍待确认。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002",
+            "BS-Q003"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.55,
+          "justification": "明确按规划报告优先研究并复用成熟上游方法。",
+          "gap": "输入要求、工具与异常规则待明确。",
+          "evidence": [
+            "confirmed-interview-method",
+            "user-planning-report",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.25,
+          "justification": "本项完成标准仍未明确。",
+          "gap": "方案确认和完成条件待明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q002"
+          ]
+        }
+      ],
+      "clarity": 0.755,
+      "ambiguity": 0.245
+    },
+    {
+      "id": "clarity-BS-005",
+      "assessed_at": "2026-10-13T10:15:18Z",
+      "kind": "model_estimate",
+      "basis": "Round 4 明确设计和检查需专门专家 Agent 参与，采用对抗式审查保障合理性与可读性。专家绑定、返修与通过标准和用户确认仍待明确。",
+      "type": "greenfield",
+      "type_rationale": "当前定义新的 Skill，本库没有其实现。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.95,
+          "justification": "明确陌生任务中由 Skill 帮助发现需求漏洞、边界与可行方向。",
+          "gap": "探索深度仍需明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.85,
+          "justification": "设计完成后按 Z-design-document 规范交付合规、可读的设计文档。",
+          "gap": "具体文档要求将在该 Skill 的独立访谈明确；当前设计收敛标准仍待确认。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002",
+            "BS-Q003"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.8,
+          "justification": "专门专家 Agent 参与设计与检查，文档写作继续遵循已确认的 Skill 分工。",
+          "gap": "具体角色绑定、设计深度和实现边界待明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q001",
+            "BS-Q002",
+            "BS-Q003",
+            "BS-Q004"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.6,
+          "justification": "明确成熟上游复用、手动触发，以及专家参与和对抗式审查方式。",
+          "gap": "专家独立性、工具、依赖与异常规则待明确。",
+          "evidence": [
+            "confirmed-interview-method",
+            "user-planning-report",
+            "BS-Q002",
+            "BS-Q004"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.55,
+          "justification": "设计合理性和可读性需要通过专家的对抗式审查。",
+          "gap": "审查通过标准、返修收敛和最终确认规则待明确。",
+          "evidence": [
+            "user-planning-report",
+            "BS-Q002",
+            "BS-Q004"
+          ]
+        }
+      ],
+      "clarity": 0.8025,
+      "ambiguity": 0.1975
+    }
+  ],
+  "gates": {
+    "clarity_threshold_met": false,
+    "non_goals_explicit": false,
+    "decision_boundaries_explicit": false,
+    "pressure_pass_done": false,
+    "closure_audit_passed": false,
+    "skill_requirements_complete": false,
+    "user_summary_confirmed": false,
+    "can_advance": false
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "question_id": "BS-Q001",
+      "target_dimension": "intent",
+      "question_format": "open_ended",
+      "question": "你最希望 Z-brainstorming 帮助解决哪一种实际问题？",
+      "background": "原规划把 brainstorming 用于多方案探索、设计取舍与审批。Z-deep-interview 已负责问清需求；接下来需要明确新 Skill 在什么实际场景中提供价值，以及探索到怎样的结果。",
+      "dependencies": [
+        "要解决的问题是否已明确",
+        "已有约束是否足以比较方向",
+        "后续设计需要哪些结论"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "展开更多可能方向",
+          "benefit": "有助于发现遗漏的思路。",
+          "limit": "会增加讨论与比较成本。"
+        },
+        {
+          "approach": "比较方向并收敛",
+          "benefit": "能为后续设计形成依据。",
+          "limit": "依赖目标与约束已经足够明确。"
+        }
+      ],
+      "status": "answered",
+      "answer": "为什么你每次都直接给我回答，并给我一些推荐的选项？ 帮助我在提供正确的需求以后去探讨实际的一些可行性方案以及给我带来思路，并对我的需求进行探讨是否合理以及可能存在的漏洞来推进设计",
+      "answer_history": [
+        {
+          "answer_id": "BS-Q001-A001",
+          "raw_answer": "为什么你每次都直接给我回答，并给我一些推荐的选项？ 帮助我在提供正确的需求以后去探讨实际的一些可行性方案以及给我带来思路，并对我的需求进行探讨是否合理以及可能存在的漏洞来推进设计",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T09:50:56Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T09:35:31Z",
+      "score_before": "clarity-BS-001",
+      "score_after": "clarity-BS-002",
+      "challenge_mode": null,
+      "next_focus": "intent",
+      "presented_prompt": "Z-brainstorming｜Round 1｜Target: intent｜模型估计清晰度 44.5%，歧义度 55.5%。\n\n原规划把它用于多方案探索、设计取舍与审批。我们已经确认 Z-deep-interview 负责在开发前问清需求；现在需要明确 Z-brainstorming 最该帮助处理的实际难题。\n\n展开更多方向有助于发现遗漏的思路，但会增加比较成本；收敛方向便于进入后续设计，却依赖目标与约束已经足够明确。本轮先明确使用场景，暂不预设具体方案或执行角色。\n\n你最希望 Z-brainstorming 帮助解决哪一种实际问题？",
+      "answer_recorded_at": "2026-10-13T09:50:56Z",
+      "interpreted_answer": {
+        "input_basis": "用户提供的需求。",
+        "core_goals": [
+          "讨论需求是否合理",
+          "发现可能存在的漏洞",
+          "探讨实际可行性方案",
+          "为用户带来思路",
+          "推进设计"
+        ],
+        "interview_style_correction": "不要预先给答案或推荐选项；围绕用户需求展开讨论。",
+        "presentation_rule": "场景未明确时，先问实际问题，不惯例地将背景包装成方案对照。",
+        "not_yet_confirmed": [
+          "具体运行方式",
+          "产物与完成标准",
+          "合理性和可行性的判断依据"
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "question_id": "BS-Q002",
+      "target_dimension": "intent",
+      "question_format": "open_ended",
+      "question": "你最近哪一个真实任务最需要这样的讨论，主要卡在哪里？",
+      "background": "已明确要基于用户提供的需求审视合理性和漏洞，探索实际可行的方案并带来思路。要把这个目标变成可执行的技能要求，需要先了解一个实际任务中的需求和卡点，才能确定怎样判断合理与可行。",
+      "dependencies": [
+        "用户实际提供的需求材料",
+        "任务中难以判断的事项",
+        "该判断会影响的后续设计"
+      ],
+      "tradeoffs": [],
+      "tradeoff_note": "本轮先明确真实场景，没有足够依据提出方案对照。",
+      "prerequisite_question_refs": [
+        "BS-Q001"
+      ],
+      "pressure_pass_of": "BS-Q001",
+      "status": "answered",
+      "answer": "对于一个我没有做过的任务来说，我都需要去探讨这个边界，而他也是应该是由我手动触发的，卡住的点这个我没有办法清楚，跟真实的需求分析有关（分析的完善了可能就没有问题），这个应该是这个skill要去帮助和帮忙去解决的问题，并且你应该优先参考 Z-document × AI Compiler 专家 Skill 体系建设报告\n评估日期：2026-10-12\n一、总体建议\n建议规划 24 个 Skill、6 类专家 Agent，分三阶段实施：P0 12 个、P1 8 个、P2 4 个。\n不应将全部开源专家 Prompt 原样装入一个 Agent。Skill 负责可复用的专业方法；Agent 负责运用技能完成任务；主 Agent 负责分派、依赖、进度和验收。工作区隔离、工具权限、生命周期与持久化属于宿主系统能力。\n二、参考项目优先级\n项目主要借鉴能力建议[wshobson/agents](https://github.com/wshobson/agents)编程专家体系、Skill 分层、跨平台分发A[K-Dense Scientific Agents](https://github.com/K-Dense-AI/scientific-agents)专家知识、工作方法、自动生成与校验A[Superpowers](https://github.com/obra/superpowers)Brainstorming、Planning、Subagent、ReviewA[Planning With Files](https://github.com/OthmanAdi/planning-with-files)长任务记忆、状态落盘、恢复机制A[Alibaba Atrex](https://github.com/alibaba/atrex-kernel-agent)Kernel 生成、Profiling、实验反馈A[TileLang MLIR Ascend](https://github.com/tile-ai/tilelang-mlir-ascend)MLIR Pass、NPU IR、编译器调试A[RISC-V Skill](https://github.com/alexfdez1010/risc-v-skill)RVV Intrinsics 和向量 KernelB[NVIDIA Skills](https://github.com/NVIDIA/skills)GPU 优化与专业工具治理B\n三、完整 Skill 清单\nA. 文档与需求：6 个\nSkill功能优先级deep-interview逐步访谈、确认约束、冻结需求P0brainstorming多方案探索、设计取舍与审批P0design-document生成架构、接口与技术设计文档P0execution-document生成可反复读取的任务执行文档P0markdown-mermaid-writingMarkdown、Mermaid、图表选择、技术文档模板P0evidence-research官方规范、文献与源码证据管理P2\nB. 工作流与任务编排：4 个\nSkill功能优先级subagent-orchestration主 Agent 分派任务、依赖排序、结果收敛P0planning-files-recovery长任务文件记忆、断点恢复、执行进度P0worktree-isolation并行开发隔离、Git 工作区管理P1skill-authoring-validationSkill 生成、注册、静态校验与测试P2\nC. MLIR / NPU / RVV：8 个\nSkill功能优先级mlir-ir-diagnosisIR 分析、Pass 定位、错误诊断P0mlir-dialect-interfaceDialect、Trait、Interface、External ModelP1mlir-pass-loweringPass 开发、Rewrite、Lowering 验证P1aggregate-tilingSoftmax、LayerNorm、RMSNorm、Reduction TilingP0bufferization-stagingBufferization、Alias、Copy、SMEM StagingP1npu-memory-bankSMEM、Bank、Group、对齐与访存冲突P0dma-async-scheduleDMA Pipeline、Double Buffer、Token 同步P2rvv-microkernelRVV Intrinsics、向量 Kernel、优化P1\nD. Runtime 与硬件：3 个\nSkill功能优先级baremetal-toolchainRISC-V、newlib、链接脚本、QEMU、固件入口P1runtime-abi-eventloopRuntime ABI、event_id、状态机与生命周期P0eda-hardware-integrationEDA 联调、寄存器、Score/RVV/CTRL 数据通路P2\nE. 验证与审查：3 个\nSkill功能优先级correctness-regressionGolden、数值误差、边界 Shape、回归测试P0performance-evaluationProfiling、成本模型、性能对比P1risk-first-code-review契约检查、Bug 风险、严重程度与审查意见P1\n四、六类专家角色\n1. Main Orchestrator：统筹任务、选择 Skill、分派 Subagent，不直接修改产品源码。\n2. Design & Documentation Expert：需求访谈、架构设计、文档输出。\n3. MLIR Compiler Expert：Dialect、Interface、Pass、Tiling、Bufferization。\n4. NPU & RVV Expert：SMEM、DMA、Bank、数据通路、RVV。\n5. Bare-metal Runtime Expert：RISC-V 固件、newlib、ABI、EventLoop。\n6. Independent Reviewer：独立审查需求符合性、实现正确性和测试证据。\n这六类角色可以共用底层模型，不要求创建六个完全独立的运行时。\n五、分阶段实施\nP0：首期 12 个 Skill\n目标是建立从需求理解到执行验收的最小闭环，优先验证 Softmax Tiling、SMEM Bank 分析、Runtime ABI 以及长任务恢复。\nP1：新增 8 个 Skill\n深化 MLIR Pass、Dialect Interface、Bufferization、RVV、裸机工具链、性能分析、Code Review 和并行工作区管理。\nP2：新增 4 个 Skill\n在具备足够真实场景后，再建设证据研究、Skill 自动生成、DMA 异步流水线专项和 EDA 联调专项。\n六、完成标准\n每个 Skill 应具有明确的触发条件和排除条件、输入输出契约、真实参考资料、正反例、边界测试和故障处理规则。\n对于 MLIR/RVV/Runtime，至少验证一个实际工程案例。对硬件尚未确认的行为必须标记待验证，不得作为冻结事实。\n对于工作流，要求主 Agent 能够依据设计文档完成任务分派、收集执行证据、处理失败，并在会话中断后恢复。\n七、最终决策建议\n完整规划 24 个 Skill，但不以数量作为交付目标。第一阶段完成 12 个后，比较启用前后的任务成功率、错误率、上下文消耗和审查成本，决定是否继续扩展。\n建议优先复用已成熟的 Brainstorming、Planning With Files、Git Worktree 和 Review 方法；将主要自研资源投入 MLIR/NPU、SMEM、RISC-V 和 Runtime ABI 等通用仓库覆盖不足的领域。\n所有移植的代码、模板、样式指南和技能材料，应根据真实来源分别标注作者、许可证和版本。 中引用的 skill，来找到别人是怎么设计的，按照别人的设计来进行实现，而不是自己造一个轮子",
+      "answer_history": [
+        {
+          "answer_id": "BS-Q002-A001",
+          "raw_answer": "对于一个我没有做过的任务来说，我都需要去探讨这个边界，而他也是应该是由我手动触发的，卡住的点这个我没有办法清楚，跟真实的需求分析有关（分析的完善了可能就没有问题），这个应该是这个skill要去帮助和帮忙去解决的问题，并且你应该优先参考 Z-document × AI Compiler 专家 Skill 体系建设报告\n评估日期：2026-10-12\n一、总体建议\n建议规划 24 个 Skill、6 类专家 Agent，分三阶段实施：P0 12 个、P1 8 个、P2 4 个。\n不应将全部开源专家 Prompt 原样装入一个 Agent。Skill 负责可复用的专业方法；Agent 负责运用技能完成任务；主 Agent 负责分派、依赖、进度和验收。工作区隔离、工具权限、生命周期与持久化属于宿主系统能力。\n二、参考项目优先级\n项目主要借鉴能力建议[wshobson/agents](https://github.com/wshobson/agents)编程专家体系、Skill 分层、跨平台分发A[K-Dense Scientific Agents](https://github.com/K-Dense-AI/scientific-agents)专家知识、工作方法、自动生成与校验A[Superpowers](https://github.com/obra/superpowers)Brainstorming、Planning、Subagent、ReviewA[Planning With Files](https://github.com/OthmanAdi/planning-with-files)长任务记忆、状态落盘、恢复机制A[Alibaba Atrex](https://github.com/alibaba/atrex-kernel-agent)Kernel 生成、Profiling、实验反馈A[TileLang MLIR Ascend](https://github.com/tile-ai/tilelang-mlir-ascend)MLIR Pass、NPU IR、编译器调试A[RISC-V Skill](https://github.com/alexfdez1010/risc-v-skill)RVV Intrinsics 和向量 KernelB[NVIDIA Skills](https://github.com/NVIDIA/skills)GPU 优化与专业工具治理B\n三、完整 Skill 清单\nA. 文档与需求：6 个\nSkill功能优先级deep-interview逐步访谈、确认约束、冻结需求P0brainstorming多方案探索、设计取舍与审批P0design-document生成架构、接口与技术设计文档P0execution-document生成可反复读取的任务执行文档P0markdown-mermaid-writingMarkdown、Mermaid、图表选择、技术文档模板P0evidence-research官方规范、文献与源码证据管理P2\nB. 工作流与任务编排：4 个\nSkill功能优先级subagent-orchestration主 Agent 分派任务、依赖排序、结果收敛P0planning-files-recovery长任务文件记忆、断点恢复、执行进度P0worktree-isolation并行开发隔离、Git 工作区管理P1skill-authoring-validationSkill 生成、注册、静态校验与测试P2\nC. MLIR / NPU / RVV：8 个\nSkill功能优先级mlir-ir-diagnosisIR 分析、Pass 定位、错误诊断P0mlir-dialect-interfaceDialect、Trait、Interface、External ModelP1mlir-pass-loweringPass 开发、Rewrite、Lowering 验证P1aggregate-tilingSoftmax、LayerNorm、RMSNorm、Reduction TilingP0bufferization-stagingBufferization、Alias、Copy、SMEM StagingP1npu-memory-bankSMEM、Bank、Group、对齐与访存冲突P0dma-async-scheduleDMA Pipeline、Double Buffer、Token 同步P2rvv-microkernelRVV Intrinsics、向量 Kernel、优化P1\nD. Runtime 与硬件：3 个\nSkill功能优先级baremetal-toolchainRISC-V、newlib、链接脚本、QEMU、固件入口P1runtime-abi-eventloopRuntime ABI、event_id、状态机与生命周期P0eda-hardware-integrationEDA 联调、寄存器、Score/RVV/CTRL 数据通路P2\nE. 验证与审查：3 个\nSkill功能优先级correctness-regressionGolden、数值误差、边界 Shape、回归测试P0performance-evaluationProfiling、成本模型、性能对比P1risk-first-code-review契约检查、Bug 风险、严重程度与审查意见P1\n四、六类专家角色\n1. Main Orchestrator：统筹任务、选择 Skill、分派 Subagent，不直接修改产品源码。\n2. Design & Documentation Expert：需求访谈、架构设计、文档输出。\n3. MLIR Compiler Expert：Dialect、Interface、Pass、Tiling、Bufferization。\n4. NPU & RVV Expert：SMEM、DMA、Bank、数据通路、RVV。\n5. Bare-metal Runtime Expert：RISC-V 固件、newlib、ABI、EventLoop。\n6. Independent Reviewer：独立审查需求符合性、实现正确性和测试证据。\n这六类角色可以共用底层模型，不要求创建六个完全独立的运行时。\n五、分阶段实施\nP0：首期 12 个 Skill\n目标是建立从需求理解到执行验收的最小闭环，优先验证 Softmax Tiling、SMEM Bank 分析、Runtime ABI 以及长任务恢复。\nP1：新增 8 个 Skill\n深化 MLIR Pass、Dialect Interface、Bufferization、RVV、裸机工具链、性能分析、Code Review 和并行工作区管理。\nP2：新增 4 个 Skill\n在具备足够真实场景后，再建设证据研究、Skill 自动生成、DMA 异步流水线专项和 EDA 联调专项。\n六、完成标准\n每个 Skill 应具有明确的触发条件和排除条件、输入输出契约、真实参考资料、正反例、边界测试和故障处理规则。\n对于 MLIR/RVV/Runtime，至少验证一个实际工程案例。对硬件尚未确认的行为必须标记待验证，不得作为冻结事实。\n对于工作流，要求主 Agent 能够依据设计文档完成任务分派、收集执行证据、处理失败，并在会话中断后恢复。\n七、最终决策建议\n完整规划 24 个 Skill，但不以数量作为交付目标。第一阶段完成 12 个后，比较启用前后的任务成功率、错误率、上下文消耗和审查成本，决定是否继续扩展。\n建议优先复用已成熟的 Brainstorming、Planning With Files、Git Worktree 和 Review 方法；将主要自研资源投入 MLIR/NPU、SMEM、RISC-V 和 Runtime ABI 等通用仓库覆盖不足的领域。\n所有移植的代码、模板、样式指南和技能材料，应根据真实来源分别标注作者、许可证和版本。 中引用的 skill，来找到别人是怎么设计的，按照别人的设计来进行实现，而不是自己造一个轮子",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T10:02:37Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T09:50:56Z",
+      "score_before": "clarity-BS-002",
+      "score_after": "clarity-BS-003",
+      "challenge_mode": null,
+      "next_focus": "scope",
+      "presented_prompt": "Z-brainstorming｜Round 2｜Target: intent｜模型估计清晰度 58.5%，歧义度 41.5%。\n\n已确定它要基于你提供的需求，讨论合理性和漏洞，探索实际可行的方案、带来新思路，并推进设计。\n\n要继续明确它的工作方式，先需要看清真实任务里的卡点，才知道“合理”和“可行”应依据什么判断。这轮先围绕你的实际经历展开。\n\n你最近哪一个真实任务最需要这样的讨论，主要卡在哪里？",
+      "answer_recorded_at": "2026-10-13T10:02:37Z",
+      "interpreted_answer": {
+        "use_case": "用户没有做过的任务，需要探索边界。",
+        "trigger": "用户手动触发。",
+        "discovery_responsibility": "Skill 分析需求并帮助发现边界与卡点；不要求用户预先说清阻碍。",
+        "reuse_policy": "优先按原规划报告研究真实上游方法，依据成熟设计改造，不自行另造方法。",
+        "reference_priority": "Z-brainstorming 首先核验 obra/superpowers 的 brainstorming。",
+        "report_scope_note": "重贴原报告用于指导来源优先级；不据此撤销此前明确的独立、单线程访谈规则。"
+      }
+    },
+    {
+      "round": 3,
+      "question_id": "BS-Q003",
+      "target_dimension": "outcome",
+      "question_format": "open_ended",
+      "question": "一次 Z-brainstorming 讨论结束时，你希望拿到怎样的结果，足以交给 Z-design-document 继续设计？",
+      "background": "Superpowers 7.0.0 在项目级讨论后形成设计文档；本体系单列 Z-design-document，需要确定复用流程的职责终点。",
+      "dependencies": [
+        "上游实际方法",
+        "本项目设计文档 Skill 的职责规划"
+      ],
+      "tradeoffs": [],
+      "status": "answered",
+      "answer": "Z-design-document  这个是用来编写文档的，应该是注重于怎么写出一个合格的架构、接口和技术设计  文档，而本身不参与设计，他相当于 SOP 来保证 AI 的每一次设计文档的编写更加可读，更加好，而brainstorming  本身负责设计，完成设计的时候有他来调用并符合Z-design-document的规范生成合规的设计文档",
+      "answer_history": [
+        {
+          "answer_id": "BS-Q003-A001",
+          "raw_answer": "Z-design-document  这个是用来编写文档的，应该是注重于怎么写出一个合格的架构、接口和技术设计  文档，而本身不参与设计，他相当于 SOP 来保证 AI 的每一次设计文档的编写更加可读，更加好，而brainstorming  本身负责设计，完成设计的时候有他来调用并符合Z-design-document的规范生成合规的设计文档",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T10:12:08Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T10:04:25Z",
+      "score_before": "clarity-BS-003",
+      "score_after": "clarity-BS-004",
+      "challenge_mode": null,
+      "next_focus": "success",
+      "presented_prompt": "Z-brainstorming｜Round 3｜Target: outcome｜模型估计清晰度 67.5%，歧义度 32.5%。\n\n已核验 Superpowers 7.0.0：它先理解意图与约束，探索方向并分段复述；对于项目，会把讨论写成设计文档，确认后进入计划。它不会固定在开场给几个推荐选项。\n\n你的体系另有 Z-design-document 负责架构、接口和技术设计。因此，需要明确 brainstorming 的交付终点，才能决定如何复用上游，而不把两个 Skill 的职责混在一起。手动触发和由 Skill 帮助发现卡点已确定，不再要求你先说清卡点。\n\n一次 Z-brainstorming 讨论结束时，你希望拿到怎样的结果，足以交给 Z-design-document 继续设计？",
+      "answer_recorded_at": "2026-10-13T10:12:08Z",
+      "interpreted_answer": {
+        "design_responsibility": "Z-brainstorming 负责设计。",
+        "documentation_responsibility": "Z-design-document 提供架构、接口和技术设计文档编写 SOP，保障合规、可读与质量，本身不参与设计。",
+        "runtime_dependency": "Z-brainstorming 完成设计时调用 Z-design-document，按其规范生成设计文档。",
+        "correction": "撤回 BS-Q003 中交给 Z-design-document 继续设计的前提。",
+        "still_pending": [
+          "设计完成与确认标准",
+          "具体文档规范",
+          "依赖不可用时的处理"
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "question_id": "BS-Q004",
+      "target_dimension": "success",
+      "question_format": "open_ended",
+      "question": "你希望怎样检查和确认这份设计文档，才算 Z-brainstorming 已完成设计？",
+      "background": "上游在完整设计获用户确认后进入计划；本项已确认设计职责和文档写作 SOP 分工，接下来明确设计完成标准。",
+      "dependencies": [
+        "BS-Q003 设计与写作职责分工",
+        "上游用户确认完整设计的规则",
+        "重要未决事项与可行性证据"
+      ],
+      "tradeoffs": [],
+      "status": "answered",
+      "answer": "这里应该有专门的专家 agent 来进行这里的设计和检查，并进行对抗式审查来保证设计的合理性和可读性",
+      "answer_history": [
+        {
+          "answer_id": "BS-Q004-A001",
+          "raw_answer": "这里应该有专门的专家 agent 来进行这里的设计和检查，并进行对抗式审查来保证设计的合理性和可读性",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T10:15:18Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T10:12:08Z",
+      "score_before": "clarity-BS-004",
+      "score_after": "clarity-BS-005",
+      "challenge_mode": null,
+      "next_focus": "success",
+      "presented_prompt": "Z-brainstorming｜Round 4｜Target: success｜模型估计清晰度 75.5%，歧义度 24.5%。\n\n已明确：Z-brainstorming 负责设计，完成设计时调用 Z-design-document，按它的写作 SOP 生成合规、可读的设计文档。\n\nSuperpowers 的项目流程以用户确认完整设计描述作为进入计划的条件。文档写得清楚与设计已经足够完整，需要分别判断：后者涉及重要决定是否明确、可行性有什么依据，以及尚未验证的内容会不会影响执行。\n\n你希望怎样检查和确认这份设计文档，才算 Z-brainstorming 已完成设计？",
+      "answer_recorded_at": "2026-10-13T10:15:18Z",
+      "interpreted_answer": {
+        "expert_participation": "未来 Z-brainstorming 的设计与检查由专门专家 Agent 参与。",
+        "review_method": "对抗式审查。",
+        "review_objectives": [
+          "设计合理性",
+          "设计可读性"
+        ],
+        "not_yet_confirmed": [
+          "专家角色绑定与设计/检查分工",
+          "独立性与上下文规则",
+          "审查意见处理与通过标准",
+          "最终用户确认规则"
+        ],
+        "scope_note": "此回答定义未来设计工作流；不要求专家执行当前独立需求访谈。"
+      }
+    },
+    {
+      "round": 5,
+      "question_id": "BS-Q005",
+      "target_dimension": "success",
+      "question_format": "open_ended",
+      "question": "你希望这些审查意见怎样被处理，才能判定这轮设计通过审查？",
+      "background": "上游 Builder Check 查重要缺口；用户要求进一步采用对抗式审查，需要明确意见处理、返修与通过规则。",
+      "dependencies": [
+        "BS-Q004 专家与对抗式审查要求",
+        "上游 Builder Check 方法",
+        "修改后问题是否已解决及专家分歧"
+      ],
+      "tradeoffs": [],
+      "status": "pending",
+      "answer": null,
+      "answer_history": [],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T10:15:18Z",
+      "score_before": "clarity-BS-005",
+      "score_after": null,
+      "challenge_mode": null,
+      "next_focus": null,
+      "presented_prompt": "Z-brainstorming｜Round 5｜Target: success｜模型估计清晰度 80.25%，歧义度 19.75%。\n\n已明确：设计与检查需要专门专家 Agent 参与，以对抗式审查检验合理性和可读性。\n\nSuperpowers 的 Builder Check 会找出影响后续计划的重要缺口，并说明为什么它们重要；你提出的对抗式审查还要主动检验设计是否站得住。审查可能发现缺少依据、设计与需求冲突，或文档难以理解。修改后需要确认问题已解决；若专家仍有分歧，需要有收敛规则。\n\n你希望这些审查意见怎样被处理，才能判定这轮设计通过审查？"
+    }
+  ],
+  "unresolved": [
+    "专家分工、独立性与角色绑定",
+    "对抗式审查意见处理、返修与通过标准",
+    "最终用户确认与交接",
+    "输入要求与需求漏洞修订",
+    "设计深度与实现边界",
+    "工具、依赖与失败恢复",
+    "验证方向"
+  ],
+  "notes": [
+    "访谈沿用已确认的单线程、讲解优先、逐题 JSON、最新内容优先和直接保存失败即终止规则。",
+    "这些是访谈过程规则，不自动成为 Z-brainstorming 的运行需求。",
+    "原规划的 Superpowers 是候选参考，本轮未读取、移植或宣称其材料已核验。",
+    "Round 2：不要求用户先说出卡点；先研究报告列出的成熟实现，再继续讨论适配。旧记录完整保留，当前结论采用新回答。",
+    "已核验 Superpowers 7.0.0 固定提交；旧 notes 中尚未核验描述只代表先前轮次，当前以上游依据记录为准。",
+    "BS-Q003：设计职责归 Z-brainstorming；Z-design-document 是文档写作 SOP。调用该文档 Skill 已确认，但不代表原上游其他调用、自动提交或 Subagent 行为获确认。",
+    "BS-Q004 确认未来设计与检查有专门专家 Agent 参与，并采用对抗式审查；不据此启动专家访谈或提前定义专家完整 SOP。"
+  ],
+  "goal_requirements": {
+    "confirmed_by": "BS-Q001",
+    "input_basis": "user_provided_requirements",
+    "goals": [
+      "requirements_reasonableness",
+      "potential_gap_detection",
+      "practical_feasibility_exploration",
+      "new_ideas",
+      "advance_design"
+    ],
+    "method_details_status": "pending",
+    "use_case": "unfamiliar_task",
+    "discovery_responsibility": "skill"
+  },
+  "interview_style_clarifications": [
+    {
+      "source_question": "BS-Q001",
+      "rule": "先围绕用户需求和真实任务展开；场景不明确时不预先给答案、推荐或方案对照。",
+      "runtime_skill_requirement": "该纠正直接适用于需求访谈口吻；Z-brainstorming 的具体产出方式仍继续明确。"
+    }
+  ],
+  "trigger_requirements": {
+    "confirmed_by": "BS-Q002",
+    "activation": "manual_user_trigger",
+    "automatic_activation": false
+  },
+  "reuse_requirements": {
+    "confirmed_by": "BS-Q002",
+    "baseline_report_date": "2026-10-12",
+    "policy": "upstream_first",
+    "primary_source": "obra/superpowers",
+    "verification_status": "primary_source_verified"
+  },
+  "context_research": [
+    {
+      "source": "obra/superpowers",
+      "version": "7.0.0",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "author": "Jesse Vincent",
+      "license": "MIT",
+      "license_path": "docs/references/licenses/superpowers-MIT.txt",
+      "license_sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "reference_path": "docs/references/superpowers-brainstorming.md",
+      "verified_at": "2026-10-13T10:04:04Z",
+      "files_read": [
+        "skills/brainstorming/SKILL.md",
+        "skills/brainstorming/builder-check-prompt.md",
+        ".claude-plugin/plugin.json",
+        "LICENSE",
+        "RELEASE-NOTES.md",
+        "skills/writing-plans/SKILL.md (opening sections)"
+      ],
+      "execution": "read_only_research",
+      "adaptations_confirmed_by_user": [
+        "manual_user_trigger",
+        "brainstorming_owns_design_and_invokes_documentation_sop_BS-Q003",
+        "expert_design_checking_and_adversarial_review_BS-Q004"
+      ],
+      "adaptations_pending": [
+        "requirement_revision",
+        "tool_permissions",
+        "approval_and_handoff",
+        "expert_role_binding_and_review_convergence"
+      ]
+    }
+  ],
+  "design_document_contract": {
+    "confirmed_by": "BS-Q003",
+    "design_owner_skill": "Z-brainstorming",
+    "documentation_sop_skill": "Z-design-document",
+    "documentation_skill_participates_in_design": false,
+    "invocation": "Z-brainstorming invokes Z-design-document when design is complete",
+    "deliverable": "compliant_readable_architecture_interface_technical_design_document",
+    "documentation_details_status": "pending_separate_requirements_interview",
+    "interview_execution_note": "此项是未来运行时契约；当前需求访谈保持独立单线程，不执行或开始访谈 Z-design-document。"
+  },
+  "expert_design_review_requirements": {
+    "confirmed_by": "BS-Q004",
+    "expert_agents_required": true,
+    "activities": [
+      "design",
+      "checking"
+    ],
+    "review_method": "adversarial_review",
+    "objectives": [
+      "design_reasonableness",
+      "design_readability"
+    ],
+    "role_binding_status": "pending",
+    "review_resolution_and_pass_criteria": "pending",
+    "final_user_confirmation": "pending",
+    "expert_execution_headings": [
+      "goal",
+      "boudaries",
+      "SOP(each run)"
+    ],
+    "headings_source": "user_global_expert_template_requirement",
+    "interview_execution": "standalone_single_thread_no_expert_participation"
+  },
+  "pause_context": {
+    "requested_at": "2026-10-13T10:30:23Z",
+    "source": "from-user",
+    "raw_request": "当前的问题保留，并且将现在完成的所有任务上传，并给出一个交接文档，方便我下次在别的项目中使用",
+    "previous_status": "awaiting_answer",
+    "resume_question_id": "BS-Q005",
+    "preserve_pending_question": true,
+    "handoff_path": "docs/HANDOFF.md"
+  }
+}

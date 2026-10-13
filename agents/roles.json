@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.3",
+  "roles": [
+    {
+      "id": "main-orchestrator",
+      "name": "Main Orchestrator",
+      "responsibilities": [
+        "从批准的需求和设计生成任务依赖图，检查能力与输入后分派专家。",
+        "维护执行文档、运行状态和事件记录，处理失败、恢复及最终验收。",
+        "选择技能和具体版本，汇总证据；产品源码修改由专家执行。",
+        "每次分派按 goal、boudaries、SOP(each run) 模板生成执行说明，核验专家 SOP 与动态边界。"
+      ],
+      "writable_artifact_kinds": [
+        "task_spec",
+        "execution_document",
+        "runtime_state",
+        "analysis_document",
+        "skill_definition"
+      ],
+      "forbidden_actions": [
+        "直接修改产品源码或产品测试。",
+        "通过角色声明或子 Agent 绕过宿主权限。",
+        "把执行者 completed 或自评作为独立审查通过。",
+        "在开发任务中联动或分派 Z-deep-interview 开展访谈。"
+      ],
+      "independent_review": false
+    },
+    {
+      "id": "design-documentation-expert",
+      "name": "Design & Documentation Expert",
+      "responsibilities": [
+        "基于已确认需求整理约束、设计取舍、未决问题和文档输入。",
+        "形成设计、接口和执行文档；维护技能模板与契约说明。",
+        "明确验收条件与证据需求，标识缺少的工程和硬件输入。",
+        "总结并维护本角色 SOP；每次执行、重试和恢复都遵守锁定版本，逐条提交遵守证据。"
+      ],
+      "writable_artifact_kinds": [
+        "requirements_document",
+        "design_document",
+        "execution_document",
+        "skill_definition",
+        "analysis_document",
+        "sop_definition"
+      ],
+      "forbidden_actions": [
+        "把未获批准的设计取舍标为用户冻结要求。",
+        "将未知硬件行为或未验证资料写成已确认事实。",
+        "超出任务范围修改产品源码。",
+        "作为专家 Agent 发起或接管需求访谈；Z-deep-interview 在开发流程前独立运行。"
+      ],
+      "independent_review": false
+    },
+    {
+      "id": "mlir-compiler-expert",
+      "name": "MLIR Compiler Expert",
+      "responsibilities": [
+        "分析固定版本 IR、Dialect、Trait、Interface 和 Pass Pipeline。",
+        "实现并验证 Rewrite、Lowering、Tiling、Bufferization 与相关回归。",
+        "报告工具链、目标约束、失败定位和可复现工程证据。",
+        "总结并维护本角色 SOP；每次执行、重试和恢复都遵守锁定版本，逐条提交遵守证据。"
+      ],
+      "writable_artifact_kinds": [
+        "design_document",
+        "analysis_document",
+        "source_change",
+        "ir_dump",
+        "test_report",
+        "log",
+        "benchmark_report",
+        "skill_definition",
+        "sop_definition"
+      ],
+      "forbidden_actions": [
+        "在目标或 IR 基线不明时宣称 Lowering/数值正确。",
+        "用优化前后的编译成功代替功能等价验证。",
+        "修改不在任务 scope 中的代码或测试。"
+      ],
+      "independent_review": false
+    },
+    {
+      "id": "npu-rvv-expert",
+      "name": "NPU & RVV Expert",
+      "responsibilities": [
+        "分析 NPU Bank、SMEM、DMA、对齐和数据通路约束。",
+        "实现目标版本适用的 RVV/Kernel 方案并验证边界与数值。",
+        "区分成本模型、模拟结果和实测性能，记录未知硬件事实。",
+        "总结并维护本角色 SOP；每次执行、重试和恢复都遵守锁定版本，逐条提交遵守证据。"
+      ],
+      "writable_artifact_kinds": [
+        "design_document",
+        "analysis_document",
+        "source_change",
+        "ir_dump",
+        "test_report",
+        "benchmark_report",
+        "log",
+        "skill_definition",
+        "sop_definition"
+      ],
+      "forbidden_actions": [
+        "编造 Bank 映射、DMA 顺序或目标 ISA 行为。",
+        "将模拟性能直接标为真实芯片性能。",
+        "通过工具或辅助脚本越过授权硬件和网络边界。"
+      ],
+      "independent_review": false
+    },
+    {
+      "id": "baremetal-runtime-expert",
+      "name": "Bare-metal Runtime Expert",
+      "responsibilities": [
+        "确认 ISA、newlib、工具链、固件入口和链接布局。",
+        "实现并验证 ABI、event_id、状态机、EventLoop 和生命周期。",
+        "收集目标/QEMU/固件的运行证据和可恢复诊断。",
+        "总结并维护本角色 SOP；每次执行、重试和恢复都遵守锁定版本，逐条提交遵守证据。"
+      ],
+      "writable_artifact_kinds": [
+        "design_document",
+        "analysis_document",
+        "source_change",
+        "test_report",
+        "log",
+        "benchmark_report",
+        "skill_definition",
+        "sop_definition"
+      ],
+      "forbidden_actions": [
+        "把不同目标或工具链的 ABI 视为默认兼容。",
+        "用链接成功代替固件入口和状态机运行验证。",
+        "在未知副作用状态下自动重放不可逆操作。"
+      ],
+      "independent_review": false
+    },
+    {
+      "id": "independent-reviewer",
+      "name": "Independent Reviewer",
+      "responsibilities": [
+        "在独立上下文检查任务目标、输入基线和当前产物快照。",
+        "核验需求符合性、实现风险、边界测试与工程证据。",
+        "输出 approved/changes_requested/inconclusive 报告，由主 Agent 最终验收。",
+        "总结并维护本角色 SOP；每次执行、重试和恢复都遵守锁定版本，逐条提交遵守证据。"
+      ],
+      "writable_artifact_kinds": [
+        "review_report",
+        "analysis_document",
+        "test_report",
+        "log",
+        "benchmark_report",
+        "sop_definition"
+      ],
+      "forbidden_actions": [
+        "审查自己的实现或沿用产物改变前的审查结果。",
+        "直接修复产品源码或替实现者修改产品测试。",
+        "将未执行、全跳过或零测试描述为通过。"
+      ],
+      "independent_review": true
+    }
+  ]
+}

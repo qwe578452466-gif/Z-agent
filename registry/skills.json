@@ -1,0 +1,367 @@
+{
+  "schema_version": "0.4",
+  "skills": [
+    {
+      "id": "Z-deep-interview",
+      "phase": "P0",
+      "kind": "documentation",
+      "owner_role": null,
+      "allowed_roles": [],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "standalone"
+    },
+    {
+      "id": "Z-brainstorming",
+      "phase": "P0",
+      "kind": "workflow",
+      "owner_role": "design-documentation-expert",
+      "allowed_roles": [
+        "design-documentation-expert",
+        "main-orchestrator",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-design-document",
+      "phase": "P0",
+      "kind": "documentation",
+      "owner_role": "design-documentation-expert",
+      "allowed_roles": [
+        "design-documentation-expert",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-execution-document",
+      "phase": "P0",
+      "kind": "documentation",
+      "owner_role": "design-documentation-expert",
+      "allowed_roles": [
+        "design-documentation-expert",
+        "main-orchestrator"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-markdown-mermaid-writing",
+      "phase": "P0",
+      "kind": "documentation",
+      "owner_role": "design-documentation-expert",
+      "allowed_roles": [
+        "main-orchestrator",
+        "design-documentation-expert",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-evidence-research",
+      "phase": "P2",
+      "kind": "documentation",
+      "owner_role": "design-documentation-expert",
+      "allowed_roles": [
+        "main-orchestrator",
+        "design-documentation-expert",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-subagent-orchestration",
+      "phase": "P0",
+      "kind": "workflow",
+      "owner_role": "main-orchestrator",
+      "allowed_roles": [
+        "main-orchestrator"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-planning-files-recovery",
+      "phase": "P0",
+      "kind": "workflow",
+      "owner_role": "main-orchestrator",
+      "allowed_roles": [
+        "main-orchestrator",
+        "design-documentation-expert",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-worktree-isolation",
+      "phase": "P1",
+      "kind": "workflow",
+      "owner_role": "main-orchestrator",
+      "allowed_roles": [
+        "main-orchestrator"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-skill-authoring-validation",
+      "phase": "P2",
+      "kind": "workflow",
+      "owner_role": "design-documentation-expert",
+      "allowed_roles": [
+        "design-documentation-expert",
+        "main-orchestrator",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-mlir-ir-diagnosis",
+      "phase": "P0",
+      "kind": "domain",
+      "owner_role": "mlir-compiler-expert",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-mlir-dialect-interface",
+      "phase": "P1",
+      "kind": "domain",
+      "owner_role": "mlir-compiler-expert",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-mlir-pass-lowering",
+      "phase": "P1",
+      "kind": "domain",
+      "owner_role": "mlir-compiler-expert",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-aggregate-tiling",
+      "phase": "P0",
+      "kind": "domain",
+      "owner_role": "mlir-compiler-expert",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-bufferization-staging",
+      "phase": "P1",
+      "kind": "domain",
+      "owner_role": "mlir-compiler-expert",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-npu-memory-bank",
+      "phase": "P0",
+      "kind": "domain",
+      "owner_role": "npu-rvv-expert",
+      "allowed_roles": [
+        "npu-rvv-expert",
+        "mlir-compiler-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-dma-async-schedule",
+      "phase": "P2",
+      "kind": "domain",
+      "owner_role": "npu-rvv-expert",
+      "allowed_roles": [
+        "npu-rvv-expert",
+        "mlir-compiler-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-rvv-microkernel",
+      "phase": "P1",
+      "kind": "domain",
+      "owner_role": "npu-rvv-expert",
+      "allowed_roles": [
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-baremetal-toolchain",
+      "phase": "P1",
+      "kind": "domain",
+      "owner_role": "baremetal-runtime-expert",
+      "allowed_roles": [
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-runtime-abi-eventloop",
+      "phase": "P0",
+      "kind": "domain",
+      "owner_role": "baremetal-runtime-expert",
+      "allowed_roles": [
+        "baremetal-runtime-expert",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-eda-hardware-integration",
+      "phase": "P2",
+      "kind": "domain",
+      "owner_role": "npu-rvv-expert",
+      "allowed_roles": [
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-correctness-regression",
+      "phase": "P0",
+      "kind": "workflow",
+      "owner_role": "independent-reviewer",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-performance-evaluation",
+      "phase": "P1",
+      "kind": "workflow",
+      "owner_role": "npu-rvv-expert",
+      "allowed_roles": [
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    },
+    {
+      "id": "Z-risk-first-code-review",
+      "phase": "P1",
+      "kind": "workflow",
+      "owner_role": "independent-reviewer",
+      "allowed_roles": [
+        "independent-reviewer"
+      ],
+      "status": "planned",
+      "path": null,
+      "version": null,
+      "usage_mode": "agent_workflow"
+    }
+  ]
+}

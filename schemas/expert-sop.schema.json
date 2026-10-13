@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://z-agent.invalid/schemas/0.3/expert-sop.schema.json",
+  "title": "Z-agent expert-authored SOP",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.3"
+    },
+    "role_id": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/role_id"
+    },
+    "version": {
+      "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/version"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "confirmed",
+        "retired"
+      ]
+    },
+    "authored_by": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "executor_id": {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+            },
+            "role_id": {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/role_id"
+            }
+          },
+          "required": [
+            "executor_id",
+            "role_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_run_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/source"
+      },
+      "minItems": 0
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "instruction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "applies_to": {
+            "enum": [
+              "every_run",
+              "conditional"
+            ]
+          },
+          "condition": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "instruction",
+          "applies_to",
+          "condition"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "applies_to": {
+                  "const": "every_run"
+                }
+              },
+              "required": [
+                "applies_to"
+              ]
+            },
+            "then": {
+              "properties": {
+                "condition": {
+                  "type": "null"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "condition": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "role_id",
+    "version",
+    "status",
+    "authored_by",
+    "source_run_ids",
+    "sources",
+    "rules"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "confirmed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "authored_by": {
+            "type": "object",
+            "properties": {
+              "executor_id": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+              },
+              "role_id": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/role_id"
+              }
+            },
+            "required": [
+              "executor_id",
+              "role_id"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  ]
+}

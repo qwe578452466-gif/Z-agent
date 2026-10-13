@@ -1,0 +1,2538 @@
+{
+  "schema_version": "0.4",
+  "record_kind": "z-interview-working-draft",
+  "interview_id": "interview-z-deep-interview",
+  "skill_id": "Z-deep-interview",
+  "owner_role": null,
+  "status": "requirements_confirmed",
+  "recorded_at": "2026-10-13T09:35:31Z",
+  "source": {
+    "project": "Yeachan-Heo/oh-my-codex",
+    "package_version": "0.21.10",
+    "commit": "2e3e629617899c867049e4979ef1355cdea94e9f",
+    "license": "MIT",
+    "reference_path": "Z-agent/docs/references/oh-my-codex-deep-interview.md"
+  },
+  "profile": "deep",
+  "threshold": 0.15,
+  "max_rounds": null,
+  "profile_options": [
+    {
+      "profile": "quick",
+      "threshold": 0.3,
+      "max_rounds": 5
+    },
+    {
+      "profile": "standard",
+      "threshold": 0.2,
+      "max_rounds": 12
+    },
+    {
+      "profile": "deep",
+      "threshold": 0.15,
+      "max_rounds": 20
+    }
+  ],
+  "current_round": 17,
+  "completed_user_rounds": 17,
+  "answered_questions": 17,
+  "total_questions_issued": 19,
+  "current_stage": "confirmed",
+  "current_focus": null,
+  "current_assessment_id": "clarity-017",
+  "assessments": [
+    {
+      "id": "clarity-001",
+      "assessed_at": "2026-10-13T04:40:48Z",
+      "kind": "model_estimate",
+      "basis": "采用参考方法后，依据已收到用户指令和来源研究对当前需求基线评估；不追溯伪造第一轮分数。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "用户要建设常用 Skill，服务需求文档和工程工作。",
+          "gap": "具体代表场景和主要痛点未细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.75,
+          "justification": "已要求完整访谈，并明确清晰度和轮次记录。",
+          "gap": "输出材料及下游交接规则未确认。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.65,
+          "justification": "已确定两类需求、Z- 命名和逐项推进。",
+          "gap": "非目标、触发排除和关联角色边界仍需细化。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.65,
+          "justification": "已指定参考方法、执行三标题和 SOP 原则。",
+          "gap": "默认模式、宿主和中断/续访策略待定。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.4,
+          "justification": "已要求当前 Skill/Agent 访谈完成后才推进。",
+          "gap": "完整验收用例、pressure pass 和角色验收未完成。",
+          "evidence": [
+            "user-sequential-interview-request"
+          ]
+        }
+      ],
+      "clarity": 0.71,
+      "ambiguity": 0.29
+    },
+    {
+      "id": "clarity-002",
+      "assessed_at": "2026-10-13T06:27:17Z",
+      "kind": "model_estimate",
+      "basis": "收到 Round 2 原始答案 Deep 后，默认档位和阈值已明确；只调整 constraints 的模型评分，其余维度仍保留缺口。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "用户要建设常用 Skill，服务需求文档和工程工作。",
+          "gap": "具体代表场景和主要痛点未细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.75,
+          "justification": "已要求完整访谈，并明确清晰度和轮次记录。",
+          "gap": "输出材料及下游交接规则未确认。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.65,
+          "justification": "已确定两类需求、Z- 命名和逐项推进。",
+          "gap": "非目标、触发排除和关联角色边界仍需细化。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.75,
+          "justification": "已明确默认 Deep、清晰度至少 85%、歧义度不超过 15%、20 轮上限，以及执行三标题和 SOP 原则。",
+          "gap": "宿主范围、到达上限后的续访策略和恢复细节仍未确定。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.4,
+          "justification": "已要求当前 Skill/Agent 访谈完成后才推进。",
+          "gap": "完整验收用例、pressure pass 和角色验收未完成。",
+          "evidence": [
+            "user-sequential-interview-request"
+          ]
+        }
+      ],
+      "clarity": 0.725,
+      "ambiguity": 0.275
+    },
+    {
+      "id": "clarity-003",
+      "assessed_at": "2026-10-13T06:32:13Z",
+      "kind": "model_estimate",
+      "basis": "收到 Round 3 技术契约层选择后，工程需求的访谈深度和非目标得到明确；更新 scope，其余维度仍保留未决项。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "用户要建设常用 Skill，服务需求文档和工程工作。",
+          "gap": "具体代表场景和主要痛点未细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.75,
+          "justification": "已要求完整访谈，并明确清晰度和轮次记录。",
+          "gap": "输出材料及下游交接规则未确认。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.85,
+          "justification": "用户选择技术契约层，覆盖需求、接口、约束与验收，由专家辅助查证；内部实现方案与直接代码修改属于后续专业技能。",
+          "gap": "具体触发排除、不同工程场景的契约字段，以及关联专家边界仍需细化。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.75,
+          "justification": "已明确默认 Deep、清晰度至少 85%、歧义度不超过 15%、20 轮上限，以及执行三标题和 SOP 原则。",
+          "gap": "宿主范围、到达上限后的续访策略和恢复细节仍未确定。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.4,
+          "justification": "已要求当前 Skill/Agent 访谈完成后才推进。",
+          "gap": "完整验收用例、pressure pass 和角色验收未完成。",
+          "evidence": [
+            "user-sequential-interview-request"
+          ]
+        }
+      ],
+      "clarity": 0.765,
+      "ambiguity": 0.235
+    },
+    {
+      "id": "clarity-004",
+      "assessed_at": "2026-10-13T06:37:33Z",
+      "kind": "model_estimate",
+      "basis": "Round 4 明确四类交付材料，用户另行要求增强人类可读总结；提升 outcome，保留总结结构与质量验收的未决项。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "用户要建设常用 Skill，服务需求文档和工程工作。",
+          "gap": "具体代表场景和主要痛点未细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.85,
+          "justification": "已确认需求规格 Markdown、访谈记录、JSON 状态和交接摘要；用户明确要求总结让人类理解。",
+          "gap": "人类总结的结构、术语解释、理由/证据追溯，以及完整交接字段和质量验收仍待确认。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.85,
+          "justification": "用户选择技术契约层，覆盖需求、接口、约束与验收，由专家辅助查证；内部实现方案与直接代码修改属于后续专业技能。",
+          "gap": "具体触发排除、不同工程场景的契约字段，以及关联专家边界仍需细化。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.75,
+          "justification": "已明确默认 Deep、清晰度至少 85%、歧义度不超过 15%、20 轮上限，以及执行三标题和 SOP 原则。",
+          "gap": "宿主范围、到达上限后的续访策略和恢复细节仍未确定。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.4,
+          "justification": "已要求当前 Skill/Agent 访谈完成后才推进。",
+          "gap": "完整验收用例、pressure pass 和角色验收未完成。",
+          "evidence": [
+            "user-sequential-interview-request"
+          ]
+        }
+      ],
+      "clarity": 0.79,
+      "ambiguity": 0.21
+    },
+    {
+      "id": "clarity-005",
+      "assessed_at": "2026-10-13T06:40:06Z",
+      "kind": "model_estimate",
+      "basis": "收到 Round 5 自定义答案后，已明确示例、背景、双层总结的顺序及示例形式；调整 outcome，保留质量验收、交接字段和其他需求缺口。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "目标是建设常用 Skill，服务需求文档和工程工作；已明确旧版总结难以让人类理解这一问题。",
+          "gap": "两类任务的完整代表场景仍需细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和人类可理解的总结要求；总结先用适合内容的示例，再说明背景，最后给出易读结论与技术契约/交接。",
+          "gap": "总结质量验收、具体交付字段、路径以及交接责任仍未确认。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.85,
+          "justification": "用户选择技术契约层，覆盖需求、接口、约束与验收，由专家辅助查证；内部实现方案与直接代码修改属于后续专业技能。",
+          "gap": "具体触发排除、不同工程场景的契约字段，以及关联专家边界仍需细化。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.75,
+          "justification": "已明确默认 Deep、清晰度至少 85%、歧义度不超过 15%、20 轮上限，以及执行三标题和 SOP 原则。",
+          "gap": "宿主范围、到达上限后的续访策略和恢复细节仍未确定。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.4,
+          "justification": "已要求当前 Skill/Agent 访谈完成后才推进。",
+          "gap": "完整验收用例、人类总结质量检查、最终需求确认流程及角色验收仍未完成；一次 pressure pass 已完成。",
+          "evidence": [
+            "user-sequential-interview-request"
+          ]
+        }
+      ],
+      "clarity": 0.8025,
+      "ambiguity": 0.1975
+    },
+    {
+      "id": "clarity-006",
+      "assessed_at": "2026-10-13T06:44:11Z",
+      "kind": "model_estimate",
+      "basis": "Round 6 明确访谈总结以整理已有内容、让人理解为目标，详细案例与边界设计留到后续；取消额外理解测试，提高 success 的明确程度，其他维度分数不变。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "目标是建设常用 Skill，服务需求文档和工程工作；已明确旧版总结难以让人类理解这一问题。",
+          "gap": "两类任务的完整代表场景仍需细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。",
+          "gap": "具体交付字段、路径以及交接责任仍未确认；不要求额外总结理解测试。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.85,
+          "justification": "用户选择技术契约层，覆盖需求、接口、约束与验收，由专家辅助查证；内部实现方案与直接代码修改属于后续专业技能。 Round 6 进一步明确：访谈总结不提前承担详细案例、边界和设计验收的设计。",
+          "gap": "该 Skill 的触发排除和关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.75,
+          "justification": "已明确默认 Deep、清晰度至少 85%、歧义度不超过 15%、20 轮上限，以及执行三标题和 SOP 原则。",
+          "gap": "宿主范围、到达上限后的续访策略和恢复细节仍未确定。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的使用与异常行为要求、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.8225,
+      "ambiguity": 0.1775
+    },
+    {
+      "id": "clarity-007",
+      "assessed_at": "2026-10-13T06:48:59Z",
+      "kind": "model_estimate",
+      "basis": "Round 7 明确首期提供通用 SKILL.md，由宿主自行调用，不交付专用宿主适配；提高 constraints 的明确程度，保留触发、异常、恢复和角色职责缺口。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "目标是建设常用 Skill，服务需求文档和工程工作；已明确旧版总结难以让人类理解这一问题。",
+          "gap": "两类任务的完整代表场景仍需细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。",
+          "gap": "具体交付字段、路径以及交接责任仍未确认；不要求额外总结理解测试。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.85,
+          "justification": "用户选择技术契约层，覆盖需求、接口、约束与验收，由专家辅助查证；内部实现方案与直接代码修改属于后续专业技能。 Round 6 进一步明确：访谈总结不提前承担详细案例、边界和设计验收的设计。",
+          "gap": "该 Skill 的触发排除和关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.85,
+          "justification": "已明确默认 Deep、阈值与轮次上限、专家三标题/SOP 原则；首期交付通用 SKILL.md，由各宿主自行调用。",
+          "gap": "到达上限后的续访、状态恢复，以及宿主能力不足时如何处理仍未明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的使用与异常行为要求、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.8375,
+      "ambiguity": 0.1625
+    },
+    {
+      "id": "clarity-008",
+      "assessed_at": "2026-10-13T06:52:22Z",
+      "kind": "model_estimate",
+      "basis": "Round 8 明确启动入口为用户明确要求或主 Agent 流程调用；不因单独检测到需求不清自动启动，提高 scope，保留输入、退出、恢复及关联角色职责缺口。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "目标是建设常用 Skill，服务需求文档和工程工作；已明确旧版总结难以让人类理解这一问题。",
+          "gap": "两类任务的完整代表场景仍需细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。",
+          "gap": "具体交付字段、路径以及交接责任仍未确认；不要求额外总结理解测试。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.9,
+          "justification": "已明确工程技术需求与后续设计的分工；仅由用户明确要求或主 Agent 任务流程调用启动访谈。",
+          "gap": "最低输入、停止与转交条件、关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.85,
+          "justification": "已明确默认 Deep、阈值与轮次上限、专家三标题/SOP 原则；首期交付通用 SKILL.md，由各宿主自行调用。",
+          "gap": "最低输入、到达上限后的续访、状态恢复，以及宿主能力不足时如何处理仍未明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的输入、停止与异常行为要求、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.8475,
+      "ambiguity": 0.1525
+    },
+    {
+      "id": "clarity-009",
+      "assessed_at": "2026-10-13T06:55:39Z",
+      "kind": "model_estimate",
+      "basis": "Round 9 明确一句话想法足以启动，已有文档、代码和约束为可选输入；提高 constraints，清晰度达到阈值。继续核对尚未覆盖的关键行为和关联角色职责，不以分数自动完成。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.85,
+          "justification": "目标是建设常用 Skill，服务需求文档和工程工作；已明确旧版总结难以让人类理解这一问题。",
+          "gap": "两类任务的完整代表场景仍需细化。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。",
+          "gap": "具体交付字段、路径以及交接责任仍未确认；不要求额外总结理解测试。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.9,
+          "justification": "已明确工程技术需求与后续设计的分工；仅由用户明确要求或主 Agent 任务流程调用启动访谈。",
+          "gap": "停止与转交条件、关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.9,
+          "justification": "已明确 Deep、阈值与上限、专家执行三标题及通用 SKILL.md；最低输入为一句话想法，已有文档、代码和约束可选。",
+          "gap": "不知道答案、到达上限后的续访、状态恢复和宿主能力不足时的行为仍未明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的停止与异常行为、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.855,
+      "ambiguity": 0.145
+    },
+    {
+      "id": "clarity-010",
+      "assessed_at": "2026-10-13T06:59:19Z",
+      "kind": "model_estimate",
+      "basis": "Round 10 明确访谈的目的包含帮助不知道答案或方案的用户理解和拆解问题；先讲背景、依赖及取舍，再讨论选择。提高 intent 的明确程度，保留查证、恢复与关联角色的缺口；不把用户纠正映射为先前推荐选项。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。",
+          "gap": "具体交付字段、路径以及交接责任仍未确认；不要求额外总结理解测试。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.9,
+          "justification": "已明确工程技术需求与后续设计的分工；仅由用户明确要求或主 Agent 任务流程调用启动访谈。",
+          "gap": "停止与转交条件、关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.9,
+          "justification": "已明确 Deep、阈值与上限、专家执行三标题及通用 SKILL.md；最低输入为一句话想法，已有文档、代码和约束可选。 模糊问题先展开解释，不能直接抛出选项或推荐。",
+          "gap": "解释后仍无法决定、事实查证范围、到达上限后的续访、状态恢复与宿主能力不足时的行为仍需明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的停止与异常行为、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.87,
+      "ambiguity": 0.13
+    },
+    {
+      "id": "clarity-011",
+      "assessed_at": "2026-10-13T07:06:27Z",
+      "kind": "model_estimate",
+      "basis": "Round 11 明确由 AI 主动指出缺口、指导建议补齐并回到原问题。该回答细化已有指导原则；恢复、停止、工具能力与角色职责仍有缺口，维度分数暂保持不变，不机械地随每次回答增加。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。",
+          "gap": "具体交付字段、路径以及交接责任仍未确认；不要求额外总结理解测试。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.9,
+          "justification": "已明确工程技术需求与后续设计的分工；仅由用户明确要求或主 Agent 任务流程调用启动访谈。",
+          "gap": "停止与转交条件、关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.9,
+          "justification": "已明确 Deep、阈值与上限、专家执行三标题及通用 SKILL.md；最低输入为一句话想法，已有文档、代码和约束可选。 模糊问题先展开解释，不能直接抛出选项或推荐。 AI 主动指出信息缺口，指导和建议补齐后回到原问题。",
+          "gap": "中断恢复、解释后仍无法决定、停止与续访，以及补齐行动的能力和访问条件仍需明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的停止与异常行为、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.87,
+      "ambiguity": 0.13
+    },
+    {
+      "id": "clarity-012",
+      "assessed_at": "2026-10-13T07:17:34Z",
+      "kind": "model_estimate",
+      "basis": "Round 12 明确每次问题用 JSON 保存，每次回答都记录，参照 OMC 问题记录与访谈状态。细化持久化要求并保留原始答案历史；恢复呈现、停止和角色职责仍未明确，分数暂保持不变。",
+      "type": "greenfield",
+      "type_rationale": "当前正在定义新 Skill 和关联角色的需求，本库没有此 Skill 的实现；已有目录契约作为约束输入。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "已确认四类交付材料和示例、背景、双层总结的表达顺序；总结整理已有需求，供人理解与后续交接。 每个问题和每次回答都记录为 JSON，参照 OMC 的关联与状态方式。",
+          "gap": "具体产物路径与交接责任仍未确认；记录字段说明结合参考源码，文件布局留待后续设计。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008",
+            "DI-Q014"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.9,
+          "justification": "已明确工程技术需求与后续设计的分工；仅由用户明确要求或主 Agent 任务流程调用启动访谈。",
+          "gap": "停止与转交条件、关联专家职责仍需明确；工程设计细节留给后续阶段。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.9,
+          "justification": "已明确 Deep、阈值与上限、专家执行三标题及通用 SKILL.md；最低输入为一句话想法，已有文档、代码和约束可选。 模糊问题先展开解释，不能直接抛出选项或推荐。 AI 主动指出信息缺口，指导和建议补齐后回到原问题。 逐题记录 JSON 问题，每次回答保存，参考 OMC 状态恢复。",
+          "gap": "恢复时的呈现、停止续访、解释后仍无法决定和宿主能力不足时的行为仍需明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013",
+            "DI-Q014"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.6,
+          "justification": "访谈总结的目标已明确为如实整理已有内容、让人理解，不增加独立理解测试；仍需完成本 Skill 和关联角色的需求并提交原有最终摘要确认。",
+          "gap": "本 Skill 的停止与异常行为、关联角色职责和最终需求摘要仍未完成；实现验证留在后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008"
+          ]
+        }
+      ],
+      "clarity": 0.87,
+      "ambiguity": 0.13
+    },
+    {
+      "id": "clarity-013",
+      "assessed_at": "2026-10-13T07:26:33Z",
+      "kind": "model_estimate",
+      "basis": "Round 13 纠正架构假设：Z-deep-interview 是开发前、单线程、无联动的独立 Skill。取消专家执行绑定、主 Agent 触发和关联 Agent 完成门；范围更明确，完成条件不再错误依赖 Agent 访谈。保留停止续访与受限记录等缺口。",
+      "type": "greenfield",
+      "type_rationale": "正在定义新的独立 Skill；本库尚无该 Skill 实现，已有目录和契约草案作为约束输入，不再合并专家角色需求。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "输出需求规格、访谈记录、JSON 状态和易读总结，由用户读取；逐题记录问题与每次回答，无自动 Agent 交接。",
+          "gap": "独立 Skill 的停止、受限记录与最终需求总结仍需核对；存储布局留待后续设计。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008",
+            "DI-Q014",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.95,
+          "justification": "已明确开发流程前直接使用，单线程、独立 Skill，无专家 Agent、主 Agent 或其他 Skill 联动。",
+          "gap": "轮次上限后的接续及工具受限时的行为仍需明确。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.9,
+          "justification": "默认 Deep、通用 SKILL.md；一句话即可启动。模糊问题先讲解，主动发现缺口并指导补齐；逐题记录 JSON，每次回答保存。当前会话单线程执行，无专家任务模板依赖。",
+          "gap": "停止续访、解释后仍无法决定、恢复呈现与宿主无法保存记录时的行为仍需明确。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013",
+            "DI-Q014",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.7,
+          "justification": "当前 Skill 独立完成需求访谈与人类总结，用户确认后才进入下一项；关联专家职责不适用于本项，不额外设置理解测试。",
+          "gap": "独立 Skill 的停止与受限行为、完成核对和最终摘要确认仍未完成；实现验证属于后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008",
+            "DI-Q015"
+          ]
+        }
+      ],
+      "clarity": 0.89,
+      "ambiguity": 0.11
+    },
+    {
+      "id": "clarity-014",
+      "assessed_at": "2026-10-13T07:43:05Z",
+      "kind": "model_estimate",
+      "basis": "Round 14 明确 20 轮后仍无法收尾就继续深度访谈，取消硬性轮次停止。提高 constraints；答案变化、恢复及记录受限行为仍需核对。",
+      "type": "greenfield",
+      "type_rationale": "正在定义新的独立 Skill；本库尚无该 Skill 实现，已有目录和契约草案作为约束输入，不再合并专家角色需求。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "输出需求规格、访谈记录、JSON 状态和易读总结，由用户读取；逐题记录问题与每次回答，无自动 Agent 交接。",
+          "gap": "独立 Skill 的停止、受限记录与最终需求总结仍需核对；存储布局留待后续设计。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008",
+            "DI-Q014",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.95,
+          "justification": "已明确开发流程前直接使用，单线程、独立 Skill，无专家 Agent、主 Agent 或其他 Skill 联动。",
+          "gap": "答案变化及工具受限时的行为仍需明确。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.95,
+          "justification": "已明确独立单线程、逐题 JSON、讲解与缺口指导；20 轮仍未完成时继续深度访谈，不按轮次强制结束。",
+          "gap": "答案变化、恢复呈现、解释后仍无法决定和无法保存 JSON 时的处理仍需核对。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013",
+            "DI-Q014",
+            "DI-Q015",
+            "DI-Q016"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.7,
+          "justification": "当前 Skill 独立完成需求访谈与人类总结，用户确认后才进入下一项；关联专家职责不适用于本项，不额外设置理解测试。",
+          "gap": "独立 Skill 的停止与受限行为、完成核对和最终摘要确认仍未完成；实现验证属于后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008",
+            "DI-Q015"
+          ]
+        }
+      ],
+      "clarity": 0.8975,
+      "ambiguity": 0.1025
+    },
+    {
+      "id": "clarity-015",
+      "assessed_at": "2026-10-13T07:51:09Z",
+      "kind": "model_estimate",
+      "basis": "Round 15 明确全部历史保留，当前需求及已有项目默认按最新访谈内容迭代。新旧内容冲突的有效依据已明确，略提高 success；保存受限与最终需求总结仍需核对。",
+      "type": "greenfield",
+      "type_rationale": "正在定义新的独立 Skill；本库尚无该 Skill 实现，已有目录和契约草案作为约束输入，不再合并专家角色需求。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "输出需求规格、访谈记录、JSON 状态和易读总结，由用户读取；逐题记录问题与每次回答，无自动 Agent 交接。",
+          "gap": "独立 Skill 的停止、受限记录与最终需求总结仍需核对；存储布局留待后续设计。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008",
+            "DI-Q014",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.95,
+          "justification": "已明确开发流程前直接使用，单线程、独立 Skill，无专家 Agent、主 Agent 或其他 Skill 联动。",
+          "gap": "工具受限时的行为仍需明确。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.95,
+          "justification": "已明确独立单线程、逐题 JSON、讲解与缺口指导；20 轮仍未完成时继续深度访谈，不按轮次强制结束。 同一事项采用最新访谈内容，历史全部保留，已有需求按最新内容迭代。",
+          "gap": "恢复呈现、解释后仍无法决定和无法保存 JSON 时的处理仍需核对。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013",
+            "DI-Q014",
+            "DI-Q015",
+            "DI-Q016",
+            "DI-Q017"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.75,
+          "justification": "历史全部保留，当前需求按最新访谈内容迭代；需求完整后提交易读总结确认，不以旧结论阻止已明确的新要求。",
+          "gap": "记录能力受限时的行为、完成核对和最终摘要确认仍未完成；实现验证属于后续开发。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008",
+            "DI-Q015",
+            "DI-Q017"
+          ]
+        }
+      ],
+      "clarity": 0.9025,
+      "ambiguity": 0.0975
+    },
+    {
+      "id": "clarity-016",
+      "assessed_at": "2026-10-13T09:21:37Z",
+      "kind": "model_estimate",
+      "basis": "Round 16 明确宿主不能直接保存 JSON 时终止，最后一项记录受限行为已明确；整理现有规则并检查需求覆盖，稍提高 success。最终完整总结仍待用户确认，未实现或验证 Skill。",
+      "type": "greenfield",
+      "type_rationale": "正在定义新的独立 Skill；本库尚无该 Skill 实现，已有目录和契约草案作为约束输入，不再合并专家角色需求。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "完整使用与异常场景仍在关键需求核对中。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "输出需求规格、访谈记录、JSON 状态和易读总结，由用户读取；逐题记录问题与每次回答，无自动 Agent 交接。",
+          "gap": "独立 Skill 的停止、受限记录与最终需求总结仍需核对；存储布局留待后续设计。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008",
+            "DI-Q014",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.95,
+          "justification": "已明确开发流程前直接使用，单线程、独立 Skill，无专家 Agent、主 Agent 或其他 Skill 联动。",
+          "gap": "当前独立边界已明确；最终需求总结仍待确认。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.95,
+          "justification": "已明确独立单线程、逐题 JSON、讲解与缺口指导；20 轮仍未完成时继续深度访谈，不按轮次强制结束。 同一事项采用最新访谈内容，历史全部保留，已有需求按最新内容迭代。 宿主不能直接保存 JSON 时终止。",
+          "gap": "关键规则已整理；具体记录器、存储布局和实现验证属于后续设计开发。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013",
+            "DI-Q014",
+            "DI-Q015",
+            "DI-Q016",
+            "DI-Q017",
+            "DI-Q018"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.8,
+          "justification": "当前访谈规则及 JSON 保存失败时终止已明确；已完成需求覆盖整理，最终完整总结需要用户确认，确认前不进入下一项。",
+          "gap": "完整需求总结待用户核对与确认；实现及工程验证尚未开展。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008",
+            "DI-Q015",
+            "DI-Q017",
+            "DI-Q018"
+          ]
+        }
+      ],
+      "clarity": 0.9075,
+      "ambiguity": 0.0925
+    },
+    {
+      "id": "clarity-017",
+      "assessed_at": "2026-10-13T09:35:31Z",
+      "kind": "model_estimate",
+      "basis": "用户在 Round 17 原始回答“确定”，确认完整需求总结作为后续设计依据。需求确认不等于实现验证，因此不因确认而上调模型评分。",
+      "type": "greenfield",
+      "type_rationale": "正在定义新的独立 Skill；本库尚无该 Skill 实现，已有目录和契约草案作为约束输入，不再合并专家角色需求。",
+      "dimensions": [
+        {
+          "id": "intent",
+          "weight": 0.3,
+          "score": 0.9,
+          "justification": "访谈服务于尚不知道答案或方案的用户，帮助其理解背景、依赖、取舍并拆解问题；总结要清楚呈现需求。",
+          "gap": "本次需求已确认；后续具体设计、实现与验证不属于待访谈问题。",
+          "evidence": [
+            "user-planning-report",
+            "DI-Q001",
+            "context-user-003",
+            "DI-Q012"
+          ]
+        },
+        {
+          "id": "outcome",
+          "weight": 0.25,
+          "score": 0.9,
+          "justification": "输出需求规格、访谈记录、JSON 状态和易读总结，由用户读取；逐题记录问题与每次回答，无自动 Agent 交接。",
+          "gap": "本次需求已确认；后续具体设计、实现与验证不属于待访谈问题。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "context-user-002",
+            "DI-Q006",
+            "context-user-003",
+            "DI-Q007",
+            "DI-Q008",
+            "DI-Q014",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "scope",
+          "weight": 0.2,
+          "score": 0.95,
+          "justification": "已明确开发流程前直接使用，单线程、独立 Skill，无专家 Agent、主 Agent 或其他 Skill 联动。",
+          "gap": "本次需求已确认；后续具体设计、实现与验证不属于待访谈问题。",
+          "evidence": [
+            "DI-Q001",
+            "context-user-002",
+            "DI-Q005",
+            "DI-Q008",
+            "DI-Q010",
+            "DI-Q015"
+          ]
+        },
+        {
+          "id": "constraints",
+          "weight": 0.15,
+          "score": 0.95,
+          "justification": "已明确独立单线程、逐题 JSON、讲解与缺口指导；20 轮仍未完成时继续深度访谈，不按轮次强制结束。 同一事项采用最新访谈内容，历史全部保留，已有需求按最新内容迭代。 宿主不能直接保存 JSON 时终止。",
+          "gap": "本次需求已确认；后续具体设计、实现与验证不属于待访谈问题。",
+          "evidence": [
+            "user-execution-template-request",
+            "context-user-002",
+            "context-research-001",
+            "DI-Q004",
+            "DI-Q009",
+            "DI-Q011",
+            "DI-Q012",
+            "DI-Q013",
+            "DI-Q014",
+            "DI-Q015",
+            "DI-Q016",
+            "DI-Q017",
+            "DI-Q018"
+          ]
+        },
+        {
+          "id": "success",
+          "weight": 0.1,
+          "score": 0.8,
+          "justification": "用户已确认完整需求总结，当前需求对象可以结束并进入下一项；Skill 实现和验证仍属于后续阶段。",
+          "gap": "本次需求确认已完成；后续实现与测试尚未开展。",
+          "evidence": [
+            "user-sequential-interview-request",
+            "DI-Q008",
+            "DI-Q015",
+            "DI-Q017",
+            "DI-Q018",
+            "DI-Q019"
+          ]
+        }
+      ],
+      "clarity": 0.9075,
+      "ambiguity": 0.0925
+    }
+  ],
+  "gates": {
+    "clarity_threshold_met": true,
+    "non_goals_explicit": true,
+    "decision_boundaries_explicit": true,
+    "pressure_pass_done": true,
+    "closure_audit_passed": true,
+    "skill_requirements_complete": true,
+    "user_summary_confirmed": true,
+    "can_advance": true,
+    "human_summary_quality_criteria_defined": true
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "question_id": "DI-Q001",
+      "target_dimension": "scope",
+      "question": "先访谈 deep-interview：首期要服务哪类需求？",
+      "status": "answered",
+      "answer": "Skill/Agent 与工程需求都覆盖（推荐）",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": null,
+      "score_after": null,
+      "score_note": "历史第一轮采用三题表单，仅本题收到答案；当时没有清晰度评估，不补造历史分数。",
+      "challenge_mode": null,
+      "next_focus": "待来源方法核实后的默认档位",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q001-A001",
+          "raw_answer": "Skill/Agent 与工程需求都覆盖（推荐）",
+          "source": "from-user",
+          "recorded_at": null,
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "question_id": "DI-Q004",
+      "target_dimension": "constraints",
+      "question": "Z-deep-interview 默认采用哪档访谈？达到上限只暂停，不自动进入下一项。",
+      "options": [
+        "Deep：清晰度至少 85%，20 轮上限（推荐）",
+        "Standard：清晰度至少 80%，12 轮上限",
+        "Quick：清晰度至少 70%，5 轮上限"
+      ],
+      "status": "answered",
+      "answer": "Deep",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-001",
+      "score_after": "clarity-002",
+      "challenge_mode": null,
+      "next_focus": "scope",
+      "interpreted_answer": {
+        "profile": "deep",
+        "clarity_threshold": 0.85,
+        "ambiguity_threshold": 0.15,
+        "max_rounds": 20
+      },
+      "answer_recorded_at": "2026-10-13T06:27:17Z",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q004-A001",
+          "raw_answer": "Deep",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:27:17Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "question_id": "DI-Q005",
+      "target_dimension": "scope",
+      "question": "你选择同时覆盖 Skill/Agent 与工程需求；对 MLIR/NPU/Runtime 等工程，Z-deep-interview 应访谈到什么深度？",
+      "options": [
+        "技术契约层：需求、接口、约束、验收；专家辅助查证（推荐）",
+        "业务需求层：目标、场景、边界；技术细节留给后续技能",
+        "实现设计层：再包含算法、Pass、状态机方案；仍不直接改代码"
+      ],
+      "status": "answered",
+      "answer": "技术契约层：需求、接口、约束、验收；专家辅助查证（推荐）",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-002",
+      "score_after": "clarity-003",
+      "challenge_mode": "Contrarian",
+      "pressure_pass_of": "DI-Q001",
+      "next_focus": "outcome",
+      "answer_recorded_at": "2026-10-13T06:32:13Z",
+      "interpreted_answer": {
+        "depth": "technical_contract",
+        "includes": [
+          "requirements",
+          "interfaces",
+          "constraints",
+          "acceptance"
+        ],
+        "expert_assistance": "fact_verification",
+        "excludes": [
+          "internal_algorithm_or_pass_design",
+          "implementation_state_machine_solution_design",
+          "direct_product_code_changes"
+        ]
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q005-A001",
+          "raw_answer": "技术契约层：需求、接口、约束、验收；专家辅助查证（推荐）",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:32:13Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "question_id": "DI-Q006",
+      "target_dimension": "outcome",
+      "question": "Z-deep-interview 结束时，应默认交付哪组材料，供后续 Skill 和主 Agent 使用？",
+      "options": [
+        "需求规格 Markdown＋访谈记录＋JSON 状态＋交接摘要（推荐）",
+        "单份完整 Markdown，包含需求、评分和访谈记录",
+        "需求规格和访谈记录，再直接生成任务拆分与依赖图"
+      ],
+      "status": "answered",
+      "answer": "需求规格 Markdown＋访谈记录＋JSON 状态＋交接摘要（推荐）",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-003",
+      "score_after": "clarity-004",
+      "challenge_mode": null,
+      "next_focus": "outcome",
+      "answer_recorded_at": "2026-10-13T06:37:33Z",
+      "interpreted_answer": {
+        "deliverables": [
+          "requirements_spec_markdown",
+          "interview_transcript",
+          "json_state",
+          "handoff_summary"
+        ],
+        "human_summary_quality": "必须加强人类可理解的访谈总结能力；结构和验收仍待确认。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q006-A001",
+          "raw_answer": "需求规格 Markdown＋访谈记录＋JSON 状态＋交接摘要（推荐）",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:37:33Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "question_id": "DI-Q007",
+      "target_dimension": "outcome",
+      "question": "为了让人类理解访谈总结，你希望采用哪种主要组织方式？",
+      "options": [
+        "双层总结：先问题、决定与理由，再技术契约和交接（推荐）",
+        "场景式总结：用一个具体工程例子串起目标、行为和验收",
+        "工程评审式总结：按需求、接口、边界、风险和验收展开，每项附解释"
+      ],
+      "status": "answered",
+      "answer": "示例优先（可以是伪代码，时序图，表格等可以表达内容的），背景优先，然后再双层总结",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-004",
+      "score_after": "clarity-005",
+      "challenge_mode": null,
+      "next_focus": "success",
+      "answer_recorded_at": "2026-10-13T06:40:06Z",
+      "interpreted_answer": {
+        "summary_order": [
+          "example",
+          "background",
+          "two_layer_summary"
+        ],
+        "example_formats": [
+          "pseudocode",
+          "sequence_diagram",
+          "table",
+          "other_suitable_representation"
+        ],
+        "format_selection": "按内容选择能够表达需求的形式，不要求每次同时使用所有形式。",
+        "two_layers": [
+          "human_readable_conclusions",
+          "technical_contract_and_handoff"
+        ],
+        "quality_acceptance": "待下一轮确认。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q007-A001",
+          "raw_answer": "示例优先（可以是伪代码，时序图，表格等可以表达内容的），背景优先，然后再双层总结",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:40:06Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "question_id": "DI-Q008",
+      "target_dimension": "success",
+      "question": "人类总结按示例、背景、双层总结组织后，你希望用什么方式检验读者是否理解？",
+      "options": [
+        "对照示例核对：你确认目标、行为、边界与验收都清楚，发现歧义就改写（推荐）",
+        "复述核对：读者用自己的话复述关键结论，比较偏差后改写",
+        "案例问答核对：用正常、边界和失败案例检查读者理解"
+      ],
+      "status": "answered",
+      "answer": "访谈阶段的重点是总结出来，让人看懂就行了，示例边界这些属于是后续的设计了",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-005",
+      "score_after": "clarity-006",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "answer_recorded_at": "2026-10-13T06:44:11Z",
+      "interpreted_answer": {
+        "interview_summary_goal": "整理已访谈内容，让人类理解。",
+        "additional_comprehension_test": "不新增复述、案例问答或逐项理解测试。",
+        "phase_boundary": "为总结提前设计具体案例、细节边界或设计验收属于后续设计阶段。",
+        "example_policy": "保留 Round 5 的表达顺序；示例用于说明已有内容，不据此创造新设计。",
+        "existing_technical_requirements": "保留已讨论的接口、约束和验收需求；未确定的设计细节作为后续交接，不要求为完成总结而补做。",
+        "final_requirements_confirmation": "仍按原有逐项访谈规则提交完整需求摘要，不添加独立可理解性确认门。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q008-A001",
+          "raw_answer": "访谈阶段的重点是总结出来，让人看懂就行了，示例边界这些属于是后续的设计了",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:44:11Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "question_id": "DI-Q009",
+      "reissues_legacy_question": "DI-Q003",
+      "target_dimension": "constraints",
+      "question": "Z-deep-interview 首期主要在哪个宿主中使用？",
+      "options": [
+        "先支持 Codex，保留其他宿主的适配接口（推荐）",
+        "同时支持 Codex 和 Claude Code",
+        "先提供通用 SKILL.md，由各宿主自行调用"
+      ],
+      "status": "answered",
+      "answer": "先提供通用 SKILL.md，由各宿主自行调用",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-006",
+      "score_after": "clarity-007",
+      "challenge_mode": null,
+      "next_focus": "scope",
+      "answer_recorded_at": "2026-10-13T06:48:59Z",
+      "interpreted_answer": {
+        "delivery_form": "generic_skill_markdown",
+        "host_invocation": "由各宿主加载和调用。",
+        "dedicated_host_adapters_in_first_release": false,
+        "host_specific_implementation_in_first_release": false,
+        "host_capability_fallback_policy": "待后续明确事实查证、文件读写与协作能力不足时的行为。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q009-A001",
+          "raw_answer": "先提供通用 SKILL.md，由各宿主自行调用",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:48:59Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "question_id": "DI-Q010",
+      "target_dimension": "scope",
+      "question": "什么情况下启动 Z-deep-interview？",
+      "options": [
+        "用户明确要求，或主 Agent 在任务流程中调用（推荐）",
+        "仅在用户明确点名或请求访谈时启动",
+        "发现需求不清时自动启动"
+      ],
+      "status": "answered",
+      "answer": "用户明确要求，或主 Agent 在任务流程中调用（推荐）",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-007",
+      "score_after": "clarity-008",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "answer_recorded_at": "2026-10-13T06:52:22Z",
+      "interpreted_answer": {
+        "trigger_policy": "explicit_user_request_or_orchestrator_invocation",
+        "triggers": [
+          "explicit_user_request",
+          "main_agent_workflow_invocation"
+        ],
+        "automatic_start_on_ambiguity_alone": false,
+        "minimum_input": "待下一轮确认。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q010-A001",
+          "raw_answer": "用户明确要求，或主 Agent 在任务流程中调用（推荐）",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:52:22Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "question_id": "DI-Q011",
+      "target_dimension": "constraints",
+      "question": "启动 Z-deep-interview 前，用户至少需要提供什么？",
+      "options": [
+        "一句话想法即可；已有文档、代码和约束作为可选输入（推荐）",
+        "必须先给出目标和背景，再开始访谈",
+        "必须基于已有需求文档开展补充访谈"
+      ],
+      "status": "answered",
+      "answer": "一句话想法即可；已有文档、代码和约束作为可选输入（推荐）",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-008",
+      "score_after": "clarity-009",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "answer_recorded_at": "2026-10-13T06:55:39Z",
+      "interpreted_answer": {
+        "minimum_input": "一句话想法。",
+        "optional_inputs": [
+          "existing_documents",
+          "code",
+          "constraints"
+        ],
+        "complete_specification_required_before_start": false,
+        "missing_information_policy": "通过访谈补齐；不知道答案和宿主能力不足的处理仍待确认。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q011-A001",
+          "raw_answer": "一句话想法即可；已有文档、代码和约束作为可选输入（推荐）",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:55:39Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "question_id": "DI-Q012",
+      "target_dimension": "constraints",
+      "question": "对需要你做决定的问题，如果你暂时不知道答案，访谈应如何继续？",
+      "options": [
+        "给出取舍参考并记为待定，先问不依赖它的问题；关键项未定不完成（推荐）",
+        "继续帮你分析，形成决定后再问下一题",
+        "暂停并保存，等你有答案后再继续"
+      ],
+      "status": "answered",
+      "answer": "需要访谈就是因为我不知道答案或者有哪些方案，对于一些模糊的问题上，你不应该直接给出选择和推荐，而是要介绍背景以及依赖和取舍，让用户先能够拆解问题，才能做出选择",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-009",
+      "score_after": "clarity-010",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "closure_gap": "用户决定缺失时怎样继续与收敛。",
+      "answer_recorded_at": "2026-10-13T06:59:19Z",
+      "interpreted_answer": {
+        "unknown_answer_is_normal_interview_input": true,
+        "ambiguous_question_policy": "先解释背景、依赖和取舍，帮助拆解问题，再讨论选择。",
+        "premature_options_or_recommendations_allowed": false,
+        "guided_exploration_required": true,
+        "original_options_selected": null,
+        "still_undecided_after_explanation": "仍需明确，不映射为原提问中任何一个选项。",
+        "separate_understanding_test_required": false
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q012-A001",
+          "raw_answer": "需要访谈就是因为我不知道答案或者有哪些方案，对于一些模糊的问题上，你不应该直接给出选择和推荐，而是要介绍背景以及依赖和取舍，让用户先能够拆解问题，才能做出选择",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T06:59:19Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "question_id": "DI-Q013",
+      "target_dimension": "constraints",
+      "question_format": "open_ended",
+      "question": "当提供的材料不足以解释一个问题时，你希望访谈者怎样补充事实依据，再回到与你讨论的需求？",
+      "background": "访谈中的缺口有两类：现有代码、接口或规范怎样工作，是可以查证的事实；你希望解决什么问题、愿意接受哪些成本，是需要与你讨论的偏好。查证可以减少猜测，但依赖资料访问、工具和时间。",
+      "dependencies": [
+        "项目材料是否可读",
+        "是否能够访问官方资料或上游源码",
+        "现有证据是否足以解释问题",
+        "查证所需时间"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "读取已有文档和代码",
+          "benefit": "贴近项目现状，通常较快。",
+          "limit": "材料可能缺失或过时。"
+        },
+        {
+          "approach": "查官方规范和上游源码",
+          "benefit": "可以补充或校正项目资料。",
+          "limit": "需要访问条件与更多查找时间，未必适用于项目版本。"
+        },
+        {
+          "approach": "证据仍不足时说明未知及其影响",
+          "benefit": "保留事实与假设的区别。",
+          "limit": "相关需求可能仍无法确定。"
+        }
+      ],
+      "prerequisite_question_refs": [
+        "DI-Q005",
+        "DI-Q012"
+      ],
+      "status": "answered",
+      "answer": "有你主动提出问题的缺口，并指导和建议访谈者如何去补齐然后回归问题",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-010",
+      "score_after": "clarity-011",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "closure_gap": "事实查证的范围、条件和如何支持需求讨论。",
+      "answer_recorded_at": "2026-10-13T07:06:27Z",
+      "interpreted_answer": {
+        "gap_identification_owner": "assistant",
+        "process": [
+          "主动指出信息缺口",
+          "解释其对当前问题的影响",
+          "指导并建议怎样补齐",
+          "补齐后回到原问题"
+        ],
+        "gap_resolution_ownership": "回答没有规定所有补齐行动必须由 AI 或用户单独承担，不作额外默认。",
+        "verified_facts_policy": "仍保留已有要求：没有查明的事实不得写成已确定。",
+        "research_access_or_time_policy": "具体工具访问、时间与权限条件尚未规定。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q013-A001",
+          "raw_answer": "有你主动提出问题的缺口，并指导和建议访谈者如何去补齐然后回归问题",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T07:06:27Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ]
+    },
+    {
+      "round": 12,
+      "question_id": "DI-Q014",
+      "target_dimension": "constraints",
+      "question_format": "open_ended",
+      "question": "你希望暂停或中断后，访谈者怎样利用已有记录把你带回当前问题？",
+      "background": "访谈可能因会话中断、暂时暂停或等待资料而停下。已确认的访谈记录和 JSON 状态可以承载进度，但恢复时还需要知道原问题、已确认内容、缺口与补齐进度。恢复的呈现方式会影响接续速度和对上下文的理解。",
+      "dependencies": [
+        "暂停前的访谈记录与状态是否可读",
+        "原问题及缺口是否有记录",
+        "暂停期间是否出现新材料或需求变化"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "简短回顾当前状态",
+          "benefit": "容易快速接续。",
+          "limit": "可能省略决定的详细依据。"
+        },
+        {
+          "approach": "按原记录回看相关背景",
+          "benefit": "可以找回问题依赖和决定依据。",
+          "limit": "需要更多阅读时间。"
+        },
+        {
+          "approach": "核对暂停期间的变化",
+          "benefit": "可以判断旧决定与缺口是否仍适用。",
+          "limit": "依赖可用的新材料与用户提供的变化信息。"
+        }
+      ],
+      "prerequisite_question_refs": [
+        "DI-Q006",
+        "DI-Q013"
+      ],
+      "status": "answered",
+      "answer": "每次问题都按照 json 的方式来保留，并且每次回答都需要记录，参考 oh-my-codex 的记录方式",
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-011",
+      "score_after": "clarity-012",
+      "challenge_mode": null,
+      "next_focus": "scope",
+      "closure_gap": "暂停或中断后怎样利用已保存内容恢复到当前问题。",
+      "answer_recorded_at": "2026-10-13T07:17:34Z",
+      "interpreted_answer": {
+        "question_storage_format": "json",
+        "save_each_question": true,
+        "save_every_answer": true,
+        "reference_method": "oh-my-codex 的问题记录与访谈状态方式。",
+        "resume_presentation": "用户未指定简短回顾或完整回看方式，不预填。",
+        "file_layout": "未要求每题必须独立文件；当前逐题对象保存在聚合 JSON 中。"
+      },
+      "answer_history": [
+        {
+          "answer_id": "DI-Q014-A001",
+          "raw_answer": "每次问题都按照 json 的方式来保留，并且每次回答都需要记录，参考 oh-my-codex 的记录方式",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T07:17:34Z",
+          "note": "来源为既有原始答案记录；未知历史时间保持为空。"
+        }
+      ],
+      "presented_prompt": "Round 12｜Target: constraints｜模型估计清晰度 87%，歧义度 13%。\n\n访谈可能因会话中断、暂时暂停或等待资料而停下。恢复时需要接上已确认内容、原问题和待补缺口；暂停期间的新资料或想法变化，也可能影响原来的讨论。\n\n简短回顾能快速找回进度，回看相关记录能补回依赖和决定依据，但需要更多阅读时间；核对期间变化则依赖可用的新材料。我们已确定交付访谈记录和 JSON 状态，这里先明确恢复时希望得到的帮助。\n\n你希望暂停或中断后，访谈者怎样利用已有记录把你带回当前问题？"
+    },
+    {
+      "round": 13,
+      "question_id": "DI-Q015",
+      "target_dimension": "scope",
+      "question_format": "open_ended",
+      "question": "你希望文档专家在一次访谈中负责到哪一步，再向主 Agent 交接？",
+      "background": "你原先把需求访谈、设计和文档输出交给文档专家，主 Agent 负责全局任务、依赖、分派和验收。使用 Z-deep-interview 时，我们已明确提问讲解、主动指出缺口、逐题 JSON 记录与人类总结；现在需要明确这一专家在访谈过程中与主 Agent 如何交接。",
+      "dependencies": [
+        "主 Agent 的任务目标和动态执行边界",
+        "文档专家是否持有完整访谈上下文",
+        "JSON 问答与状态记录是否可用",
+        "遇到缺口时的协作条件"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "过程中的进度与阻碍交接",
+          "benefit": "主 Agent 可以掌握依赖并调整安排。",
+          "limit": "频繁重复访谈上下文会增加成本。"
+        },
+        {
+          "approach": "形成完整需求总结后交接",
+          "benefit": "后续工作获得集中、完整的需求依据。",
+          "limit": "中途缺口仍需要协作，不能等到最后才暴露。"
+        }
+      ],
+      "prerequisite_question_refs": [
+        "DI-Q006",
+        "DI-Q012",
+        "DI-Q013",
+        "DI-Q014"
+      ],
+      "status": "answered",
+      "answer": "专家 agent 不应该进行访谈了，访谈是在我开发的流程前去做的事情，是直接使用 Z-deep-interview   去做的，单线程，一个单独的 skill 技能包，不进行联动",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q015-A001",
+          "raw_answer": "专家 agent 不应该进行访谈了，访谈是在我开发的流程前去做的事情，是直接使用 Z-deep-interview   去做的，单线程，一个单独的 skill 技能包，不进行联动",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T07:26:33Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "score_before": "clarity-012",
+      "score_after": "clarity-013",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "closure_gap": "关联文档专家在访谈中的职责与主 Agent 的交接。",
+      "question_recorded_at": "2026-10-13T07:17:34Z",
+      "presented_prompt": "Round 13｜Target: scope｜模型估计清晰度 87%，歧义度 13%。\n\n现在进入同一单元中“文档专家”的职责。你原先让它负责访谈、设计和文档输出，让主 Agent 负责全局任务、依赖、分派和验收。本轮只讨论它使用 Z-deep-interview 时的配合方式。\n\n我们已确定访谈需要讲解问题、主动发现缺口、逐题记录 JSON 和形成易读总结。主 Agent 要掌握进度与阻碍，才能安排协作；过程中的频繁汇报会增加重复上下文，最后交付完整总结能集中信息，但中途缺口也需要及时协作。\n\n你希望文档专家在一次访谈中负责到哪一步，再向主 Agent 交接？",
+      "answer_recorded_at": "2026-10-13T07:26:33Z",
+      "interpreted_answer": {
+        "execution_phase": "before_development_workflow",
+        "execution_mode": "standalone_skill",
+        "threading": "single",
+        "invocation": "用户在当前单个会话直接使用通用 SKILL.md。",
+        "expert_agent_interview_execution": false,
+        "main_agent_or_subagent_linkage": false,
+        "other_skill_linkage": false,
+        "earlier_main_agent_invocation_rule": "Round 8 的主 Agent 流程触发分支由本轮纠正；原始答案保留。",
+        "earlier_expert_binding": "取消 Z-deep-interview 与文档专家的执行绑定；专家 Agent 的需求仍为后续被定义对象。"
+      }
+    },
+    {
+      "round": 14,
+      "question_id": "DI-Q016",
+      "target_dimension": "constraints",
+      "question_format": "open_ended",
+      "question": "达到 20 轮仍有关键未决项时，你希望这个独立 Skill 怎样收尾或接续？",
+      "background": "默认 Deep 的 20 轮上限用于控制一次访谈的长度；你同时要求当前需求完成后才进入下一项。轮次数达到上限，不能自动把未决问题变成已确认要求。单线程 Skill 需要保存已有问答和进度，并明确怎样处理剩余问题。",
+      "dependencies": [
+        "当前 JSON 记录与问题状态",
+        "关键未决项是否影响需求完成",
+        "一次访谈段的轮次上限",
+        "后续仍在同一独立访谈上下文接续的能力"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "形成阶段总结并保存进度",
+          "benefit": "可以保留已有成果，说明剩余问题。",
+          "limit": "阶段总结不代表需求已经完成。"
+        },
+        {
+          "approach": "沿着未决问题继续访谈",
+          "benefit": "可以补齐影响需求确认的缺口。",
+          "limit": "需要明确怎样接续，以及原有轮次如何保留。"
+        },
+        {
+          "approach": "先分析卡点再接续",
+          "benefit": "可以判断缺的是背景、事实还是尚未形成的偏好。",
+          "limit": "需要额外讨论时间。"
+        }
+      ],
+      "prerequisite_question_refs": [
+        "DI-Q004",
+        "DI-Q014",
+        "DI-Q015"
+      ],
+      "status": "answered",
+      "answer": "如果20轮还无法收尾，则继续进入深度访谈",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q016-A001",
+          "raw_answer": "如果20轮还无法收尾，则继续进入深度访谈",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T07:43:05Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T07:26:33Z",
+      "score_before": "clarity-013",
+      "score_after": "clarity-014",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "closure_gap": "独立访谈达到轮次上限后仍有关键未决项时的收尾与接续。",
+      "presented_prompt": "Round 14｜Target: constraints｜模型估计清晰度 89%，歧义度 11%。\n\n现在只讨论独立 Skill 的收尾。Deep 默认最多 20 轮，是为了控制一次访谈长度；你同时要求需求完成后才进入下一项。到达轮次上限时，可能已经问清主要内容，也可能还有影响需求完成的关键缺口。\n\n把已有决定与未决项整理成阶段总结、保存 JSON，可以保留进度；继续围绕缺口访谈可以补齐需求，但需要明确接续方式和轮次记录；先分析卡点则能判断缺的是背景、事实还是偏好。阶段总结本身不代表需求已完成。\n\n达到 20 轮仍有关键未决项时，你希望这个独立 Skill 怎样收尾或接续？",
+      "answer_recorded_at": "2026-10-13T07:43:05Z",
+      "interpreted_answer": {
+        "continue_if_unresolved_at_round_20": true,
+        "continuation": "继续进入深度访谈。",
+        "automatic_stop_at_round_20": false,
+        "round_history": "沿用累计轮次与原问答，不重置或删除；作为执行记录要求落实。",
+        "parallel_or_skill_linkage": false
+      }
+    },
+    {
+      "round": 15,
+      "question_id": "DI-Q017",
+      "target_dimension": "constraints",
+      "question_format": "open_ended",
+      "question": "当你后面改变了先前的想法，访谈者应怎样调整已有结论，并带你接着讨论？",
+      "background": "每次回答都已要求记录为 JSON。后来的回答可能补充，也可能改变早先的决定；早先决定又可能影响后续讨论。保留原文历史能追溯变化，还需要明确哪些结论随之调整，以及怎样回到相关问题。",
+      "dependencies": [
+        "变化涉及的原问题与答案历史",
+        "后续结论是否依赖该决定",
+        "用户是在补充还是明确替代旧决定"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "继续采用明确的新决定",
+          "benefit": "让需求跟上当前想法。",
+          "limit": "需要辨认受影响的后续结论。"
+        },
+        {
+          "approach": "回看相关依赖问题",
+          "benefit": "能解释哪些内容需要重新讨论。",
+          "limit": "会增加部分访谈时间。"
+        },
+        {
+          "approach": "先澄清补充或冲突的含义",
+          "benefit": "避免把尚未确定的表达当成替代决定。",
+          "limit": "需要在相关点继续讨论。"
+        }
+      ],
+      "prerequisite_question_refs": [
+        "DI-Q014",
+        "DI-Q015"
+      ],
+      "status": "answered",
+      "answer": "全都保留，之前的项目默认按照最新的来迭代，新的访谈内容永远的比旧的访谈内容有效",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q017-A001",
+          "raw_answer": "全都保留，之前的项目默认按照最新的来迭代，新的访谈内容永远的比旧的访谈内容有效",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T07:51:09Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T07:43:05Z",
+      "score_before": "clarity-014",
+      "score_after": "clarity-015",
+      "challenge_mode": null,
+      "next_focus": "constraints",
+      "closure_gap": "新答案怎样影响已有决定及依赖结论。",
+      "presented_prompt": "Round 15｜Target: constraints｜模型估计清晰度 89.75%，歧义度 10.25%。\n\n我们已经明确每次回答都保存 JSON。后面改变想法时，一条旧决定可能影响多个后续结论。例如，本次你明确“独立 Skill、无联动”，就需要同步撤回之前的主 Agent 触发和专家绑定，同时保留原始问答。\n\n采用新的明确决定能让需求跟上当前想法，回看相关依赖能找到需要重新讨论的内容，但会增加访谈时间；如果只是补充或含义尚不清楚，需要先拆开讨论。\n\n当你后面改变了先前的想法，访谈者应怎样调整已有结论，并带你接着讨论？",
+      "answer_recorded_at": "2026-10-13T07:51:09Z",
+      "interpreted_answer": {
+        "retain_all_interview_history": true,
+        "effective_requirement_precedence": "latest_interview_content",
+        "existing_project_iteration": "默认按最新访谈内容迭代。",
+        "same_subject_conflict": "同一事项的新内容优先，旧内容保留为历史。",
+        "unchanged_subjects": "没有被新内容修改的既有事项继续保留，不因新轮次丢弃。",
+        "product_implementation_phase": "当前更新需求依据，具体产品设计与实现仍在后续阶段。"
+      }
+    },
+    {
+      "round": 16,
+      "question_id": "DI-Q018",
+      "target_dimension": "constraints",
+      "question_format": "open_ended",
+      "question": "如果使用的宿主不能直接保存 JSON 文件，你希望访谈怎样继续？",
+      "background": "首期提供通用 SKILL.md，不同宿主可能有不同的文件读写能力。每题每答都要保留 JSON；没有写入能力时，当前会话仍可表达 JSON 内容，但能否持久保存取决于宿主或用户实际保存。独立 Skill 不通过其他 Agent 或 Skill 补上能力。",
+      "dependencies": [
+        "当前宿主是否支持文件写入或导出",
+        "用户是否有可用的保存方式",
+        "输出的 JSON 是否已实际持久保存"
+      ],
+      "tradeoffs": [
+        {
+          "approach": "提供可保存的 JSON 内容继续访谈",
+          "benefit": "可以在当前会话继续收集需求。",
+          "limit": "需要有实际保存方式，不能把展示当作已写入文件。"
+        },
+        {
+          "approach": "先补齐保存能力再继续",
+          "benefit": "可以满足逐题持久记录要求。",
+          "limit": "会暂时打断访谈，需要当前宿主或用户协助。"
+        }
+      ],
+      "prerequisite_question_refs": [
+        "DI-Q009",
+        "DI-Q014",
+        "DI-Q015"
+      ],
+      "status": "answered",
+      "answer": "如果宿主不能直接保存 JSON 文件，直接终止这个没什么好说的了",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q018-A001",
+          "raw_answer": "如果宿主不能直接保存 JSON 文件，直接终止这个没什么好说的了",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T09:21:37Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T07:51:09Z",
+      "score_before": "clarity-015",
+      "score_after": "clarity-016",
+      "challenge_mode": null,
+      "next_focus": "success",
+      "closure_gap": "通用宿主缺少保存能力时怎样满足逐题 JSON 记录要求。",
+      "presented_prompt": "Round 16｜Target: constraints｜模型估计清晰度 90.25%，歧义度 9.75%。\n\n我们已确定首期是通用 SKILL.md，每次提问和回答都要保留 JSON。不同宿主的文件写入或导出能力可能不同；本次环境能保存文件，但需要明确在其他宿主缺少这种能力时怎么办。\n\n当前会话可以给出 JSON 供保存，便于继续访谈，但展示内容不等于已经写入文件；也可以先补齐保存能力，记录会更可靠，但访谈需要等待。独立 Skill 不通过联动其他 Agent 来获得能力。\n\n如果使用的宿主不能直接保存 JSON 文件，你希望访谈怎样继续？",
+      "answer_recorded_at": "2026-10-13T09:21:37Z",
+      "interpreted_answer": {
+        "direct_json_file_saving_required": true,
+        "on_unavailable_saving": "terminate_interview",
+        "continue_with_display_only_json": false,
+        "manual_export_fallback": false,
+        "automatic_agent_or_skill_fallback": false
+      }
+    },
+    {
+      "round": 17,
+      "question_id": "DI-Q019",
+      "target_dimension": "success",
+      "question_format": "open_ended",
+      "question": "你是否确认这份 Z-deep-interview 完整需求总结可以作为后续设计依据？",
+      "background": "关键访谈规则已完整整理。按照用户逐项完成后再进入下一项的要求，提交具体、可读的需求总结进行最终核对。",
+      "dependencies": [
+        "完整需求总结",
+        "逐题原始问答与当前有效规则"
+      ],
+      "tradeoffs": [],
+      "prerequisite_question_refs": [
+        "DI-Q015",
+        "DI-Q016",
+        "DI-Q017",
+        "DI-Q018"
+      ],
+      "status": "answered",
+      "answer": "确定",
+      "answer_history": [
+        {
+          "answer_id": "DI-Q019-A001",
+          "raw_answer": "确定",
+          "source": "from-user",
+          "recorded_at": "2026-10-13T09:35:31Z"
+        }
+      ],
+      "source": "from-user",
+      "asked_at": null,
+      "answered_at": null,
+      "question_recorded_at": "2026-10-13T09:21:37Z",
+      "score_before": "clarity-016",
+      "score_after": "clarity-017",
+      "challenge_mode": null,
+      "next_focus": null,
+      "closure_gap": "最终完整需求总结的用户确认。",
+      "summary_path": "docs/requirements/summaries/Z-deep-interview.md",
+      "presented_prompt": "Round 17｜Target: success｜模型估计清晰度 90.75%，歧义度 9.25%。\n\n已整理完整需求总结：开发前直接使用、单线程独立 Skill，无 Agent 或其他 Skill 联动；一句话即可开始，先解释背景、依赖与取舍再讨论选择；主动指出缺口并指导补齐；每题每答直接保存 JSON，不能保存则终止；历史全部保留，同一事项采用最新内容；20 轮无法收尾继续深度访谈；输出需求规格、记录、JSON 状态与按“示例 → 背景 → 双层总结”组织的易读总结。恢复参照 OMC 的问题状态与已回答记录，详细实现与存储布局在后续设计。\n\n完整文档：docs/requirements/summaries/Z-deep-interview.md\n\n你是否确认这份 Z-deep-interview 完整需求总结可以作为后续设计依据？",
+      "answer_recorded_at": "2026-10-13T09:35:31Z",
+      "interpreted_answer": {
+        "complete_requirements_summary_confirmed": true
+      }
+    }
+  ],
+  "legacy_questions": [
+    {
+      "question_id": "DI-Q002",
+      "question": "每轮如何提问？同一轮只包含互不依赖、已经具备前提的问题。",
+      "answer": null,
+      "tracking_status": "superseded_by_user_method_direction",
+      "reason": "用户改为参照 oh-my-codex；该方法每轮严格一问。不是用户选择了原推荐选项。"
+    },
+    {
+      "question_id": "DI-Q003",
+      "question": "首期的访谈交互要支持哪些宿主？",
+      "answer": null,
+      "tracking_status": "resolved_by_later_round",
+      "reason": "原问题没有直接答案；重新单独询问的 Round 7 已收到通用 SKILL.md 的选择，原历史答案保持为空。",
+      "reissued_as": "DI-Q009",
+      "resolved_answer_ref": "DI-Q009"
+    }
+  ],
+  "context_updates": [
+    {
+      "id": "context-user-002",
+      "source": "from-user",
+      "text": "希望按照 oh-my-codex 中的 `deep-interview`  功能来实现，需要有明确的清晰度和访谈轮次的记录，后续的所有skill 都按照 Z-{skill} 的方式来命名 skill",
+      "affects": [
+        "method",
+        "round-record",
+        "clarity-record",
+        "skill-naming"
+      ],
+      "counts_as_user_round": false
+    },
+    {
+      "id": "context-research-001",
+      "source": "from-research",
+      "reference_path": "Z-agent/docs/references/oh-my-codex-deep-interview.md",
+      "text": "核实评分、权重、模式、单轮一问、来源版本和运行时门控差异。",
+      "affects": [
+        "method",
+        "record-design",
+        "gates"
+      ],
+      "counts_as_user_round": false
+    },
+    {
+      "id": "context-user-003",
+      "source": "from-user",
+      "text": "在旧版本的 deep-interview 中我认为有一点不太好的是，他虽然完成了访谈的记录，但是没有完成一个很好的访谈总结，他的总结不总是能让人类理解，需要加强一个对访谈总结的能力",
+      "affects": [
+        "human_summary",
+        "outcome",
+        "summary_quality_acceptance"
+      ],
+      "counts_as_user_round": false
+    }
+  ],
+  "challenge_modes_used": [
+    "Contrarian"
+  ],
+  "pressure_pass_records": [
+    {
+      "id": "pressure-001",
+      "round": 3,
+      "revisits_question_id": "DI-Q001",
+      "question_id": "DI-Q005",
+      "method": "tradeoff_and_boundary",
+      "result": "通过业务、技术契约、实现方案三种层级检验同时覆盖两类需求的边界，用户明确选择技术契约层。",
+      "status": "completed"
+    }
+  ],
+  "unresolved": [],
+  "notes": [
+    "逐条 round 与 assessment 引用是 Z 项目补充的记录草案，不声称原版已有同样严格字段。",
+    "当前清晰度是模型估计；数学计算可复核，分值不代表工程正确率。",
+    "用户指令和源码事实更新不会伪造新的回答轮次。",
+    "只有完整需求与关联 Agent 的必要细节完成并确认后才可进入下一项。",
+    "默认 Deep 已由用户明确选择；quick/standard 是否保留覆写入口仍需在功能配置访谈中明确。",
+    "Round 6 的阶段边界说明覆盖先前草案：总结整理已讨论需求，不新增理解考试，不为访谈总结提前设计案例、边界或测试；历史问题和分数保留。",
+    "Round 9 后清晰度达到 Deep 阈值，进入关键需求完整性核对；继续提问只覆盖未决行为与关联 Agent 职责，不添加总结理解测试或提前设计工程案例。",
+    "Round 10 纠正提问方法：不知道答案或方案是正常起点。模糊问题先解释背景、依赖及取舍，帮助拆解后再讨论选择；不自动选用旧推荐答案，也不新增理解考试。",
+    "Round 13 覆盖早期角色绑定与主 Agent 触发假设。旧问题、原始答案和当时评分完整保留，当前规则以 execution_requirements 为准；Agent 需求不再阻塞本独立 Skill。",
+    "Round 14 覆盖上游 Deep 的 20 轮停止策略：20 轮仍无法收尾就继续深度访谈；max_rounds 为 null，20 保留为检查节点和来源参考值。历史档位和旧问题不改写。"
+  ],
+  "human_summary_requirements": {
+    "structure_confirmed_by": "DI-Q007",
+    "order": [
+      "example",
+      "background",
+      "two_layer_summary"
+    ],
+    "allowed_example_formats": [
+      "pseudocode",
+      "sequence_diagram",
+      "table",
+      "other_suitable_representation"
+    ],
+    "format_policy": "根据内容选择表达形式；不要求全部形式同时出现。",
+    "two_layers": [
+      "human_readable_conclusions",
+      "recorded_technical_requirements_and_handoff"
+    ],
+    "quality_acceptance_status": "原则已明确；不新增独立理解测试。",
+    "readability_confirmation_status": "不设独立门；保留原有完整需求摘要确认。",
+    "goal": "总结已访谈内容，让人看懂。",
+    "phase_boundary_confirmed_by": "DI-Q008",
+    "example_policy": "说明已有内容；具体设计案例、边界细化及设计验收交接给后续设计。",
+    "additional_comprehension_test_required": false
+  },
+  "delivery_requirements": {
+    "confirmed_by": "DI-Q009",
+    "form": "generic_skill_markdown",
+    "invocation": "用户在开发流程前的当前单个会话中直接使用。",
+    "dedicated_host_adapters_in_first_release": false,
+    "trigger_policy": "direct_user_invocation",
+    "capability_fallback_policy": "terminate_if_json_file_cannot_be_saved",
+    "agent_linkage": false
+  },
+  "trigger_requirements": {
+    "confirmed_by": "DI-Q015",
+    "triggers": [
+      "explicit_user_request"
+    ],
+    "automatic_start_on_ambiguity_alone": false,
+    "minimum_input_status": "confirmed",
+    "superseded_branch": {
+      "source_question": "DI-Q010",
+      "branch": "main_agent_workflow_invocation",
+      "superseded_by": "DI-Q015"
+    }
+  },
+  "input_requirements": {
+    "confirmed_by": "DI-Q011",
+    "minimum_input": "一句话想法。",
+    "optional_inputs": [
+      "existing_documents",
+      "code",
+      "constraints"
+    ],
+    "complete_specification_required_before_start": false
+  },
+  "questioning_requirements": {
+    "confirmed_by": "DI-Q012",
+    "unknown_answer_is_normal_input": true,
+    "ambiguous_question_policy": {
+      "explain": [
+        "background",
+        "dependencies",
+        "tradeoffs"
+      ],
+      "help_decompose_before_choice": true,
+      "premature_options_or_recommendations_allowed": false
+    },
+    "one_question_per_round": true,
+    "separate_understanding_test_required": false,
+    "options_policy": "模糊问题先用开放问题展开；决策依据已展开后再讨论可比较的选择，推荐须说明依据，不视为用户决定。",
+    "question_context_record": "从本轮起记录为拆解问题提供的背景、依赖与取舍；不补造旧轮次讲解。"
+  },
+  "gap_handling_requirements": {
+    "confirmed_by": "DI-Q013",
+    "identification_owner": "assistant",
+    "process": [
+      "identify_gap",
+      "explain_impact",
+      "guide_and_suggest_resolution",
+      "return_to_original_question"
+    ],
+    "preserve_original_question": true,
+    "gap_resolution_ownership": "not_fully_specified",
+    "unknown_facts_remain_unknown_until_verified": true,
+    "resume_behavior": "pending"
+  },
+  "persistence_requirements": {
+    "confirmed_by": "DI-Q014",
+    "save_each_question_as_json": true,
+    "save_every_answer": true,
+    "reference_method": "oh-my-codex question record and interview state",
+    "raw_answer_preservation": true,
+    "answer_revision_policy": "全部访谈历史保留；当前有效需求采用最新访谈内容，既有项目默认据此迭代。",
+    "question_answer_association": "稳定 question_id 关联状态与原始答案。",
+    "save_timing": "提问时保存待答问题；收到每次回答后保存该答案并更新状态。",
+    "current_record_layout": "聚合访谈 JSON 中每题一条记录。",
+    "source_specific_runtime_dependency_required": false,
+    "resume_presentation_status": "not_specified",
+    "on_save_unavailable": "terminate_interview"
+  },
+  "execution_requirements": {
+    "confirmed_by": "DI-Q015",
+    "phase": "pre_development",
+    "usage_mode": "standalone",
+    "threading": "single",
+    "execution_context": "current_user_conversation",
+    "expert_agent_linkage": false,
+    "orchestrator_linkage": false,
+    "subagent_delegation": false,
+    "inter_skill_linkage": false,
+    "expert_execution_template_required": false
+  },
+  "gate_applicability": {
+    "associated_agent_requirements": "not_applicable",
+    "expert_sop_requirements": "not_applicable",
+    "reason": "Round 13 明确本项为无联动的独立 Skill；Agent 需求作为独立对象后续访谈。"
+  },
+  "source_profile_max_rounds": 20,
+  "round_policy": {
+    "confirmed_by": "DI-Q016",
+    "review_round": 20,
+    "hard_max_rounds": null,
+    "on_unresolved_at_review": "continue_deeper_interview",
+    "automatic_stop_at_review": false,
+    "preserve_cumulative_rounds": true,
+    "preserve_question_and_answer_history": true,
+    "continuation_execution": "same_standalone_single_thread",
+    "depth_focus": "围绕关键未决项继续解释背景、依赖和取舍，主动指出缺口并引导补齐。"
+  },
+  "profile_options_origin": "上游参考档位；当前 Deep 的 20 轮停止策略由 DI-Q016 覆盖，其他档位配置未冻结。",
+  "revision_requirements": {
+    "confirmed_by": "DI-Q017",
+    "preserve_all_history": true,
+    "effective_precedence": "latest_interview_content",
+    "existing_project_iteration": "use_latest_interview_content_by_default",
+    "same_subject_rule": "同一事项以最新访谈内容为当前依据。",
+    "unmodified_requirements": "未被替代或修改的事项继续保留。",
+    "history_status": "保留原问题、各次回答、讲解与当时评估；与当前有效需求分开。",
+    "impact_handling": "识别受影响的需求与依赖结论，更新当前需求文档，继续受影响问题的讨论。"
+  },
+  "save_capability_requirements": {
+    "confirmed_by": "DI-Q018",
+    "direct_json_file_saving_required": true,
+    "question_must_be_saved_before_continuation": true,
+    "every_answer_must_be_saved_before_continuation": true,
+    "on_unavailable_saving": "terminate_interview",
+    "continue_with_display_only_json": false,
+    "manual_export_fallback": false,
+    "automatic_capability_repair_or_linkage": false,
+    "failed_save_must_not_be_claimed_successful": true
+  },
+  "closure_audit": {
+    "status": "confirmed_by_user",
+    "checked_at": "2026-10-13T09:21:37Z",
+    "basis": "现有用户回答与参考方法的需求覆盖整理，不是实现或测试结果。",
+    "coverage": {
+      "intent_and_scope": [
+        "DI-Q001",
+        "DI-Q005",
+        "DI-Q015"
+      ],
+      "entry_and_inputs": [
+        "DI-Q009",
+        "DI-Q010",
+        "DI-Q011",
+        "DI-Q015"
+      ],
+      "questioning_and_gaps": [
+        "DI-Q012",
+        "DI-Q013"
+      ],
+      "outputs_and_summary": [
+        "DI-Q006",
+        "DI-Q007",
+        "DI-Q008"
+      ],
+      "records_and_revision": [
+        "DI-Q014",
+        "DI-Q017"
+      ],
+      "continuation": [
+        "DI-Q004",
+        "DI-Q016"
+      ],
+      "capability_failure": [
+        "DI-Q018"
+      ]
+    },
+    "source_based_recovery": "参照 OMC，从 JSON 已回答和待答状态恢复；依据最新访谈内容更新当前需求。",
+    "deferred_to_design": [
+      "具体文件布局",
+      "记录器实现",
+      "JSON Schema 与工具接口",
+      "实际验证用例与工程实现"
+    ],
+    "agent_gate_applicable": false,
+    "confirmation_question_id": "DI-Q019"
+  },
+  "recovery_requirements": {
+    "basis": "用户指定 OMC 方法与逐题 JSON 记录，以及最新访谈内容优先。",
+    "origin_kind": "source_based_method_baseline",
+    "resume_from": "saved_question_answer_and_status_records",
+    "answered_questions": "保留已回答内容，不把恢复作为重新回答的要求。",
+    "pending_question": "按保存状态和当前有效需求接续待答问题。",
+    "presentation": "具体回顾篇幅与界面形式在后续设计，不新增独立理解测试。"
+  },
+  "user_exit_requirements": {
+    "basis": "OMC stop/cancel 行为及用户对当前访谈的控制。",
+    "origin_kind": "source_based_method_baseline",
+    "on_explicit_stop_or_cancel": "save_writable_progress_and_end_current_interview",
+    "auto_advance_without_summary_confirmation": false,
+    "on_unavailable_json_save": "terminate_interview"
+  },
+  "confirmed_at": "2026-10-13T09:35:31Z",
+  "requirements_revision": 1,
+  "confirmation": {
+    "question_id": "DI-Q019",
+    "raw_answer": "确定",
+    "confirmed_at": "2026-10-13T09:35:31Z",
+    "summary_path": "docs/requirements/summaries/Z-deep-interview.md",
+    "summary_sha256": "f7d1f0f72dc109f996e1ed239fedd71d57cd7af112ae21668f8707c6d158e00b",
+    "meaning": "确认需求理解与后续设计依据，不确认实现或测试通过。"
+  }
+}

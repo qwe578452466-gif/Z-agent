@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.3",
+  "task_id": "task-softmax-001",
+  "run_id": "run-softmax-example",
+  "mode": "skill_validation",
+  "goal": "在已明确的目标 NPU 约束下提出稳定 Softmax 的聚合 Tiling 方案，并与 Golden 验证；本示例的目标规格和技能实现尚未提供。",
+  "owner_role": "mlir-compiler-expert",
+  "skill_refs": [
+    {
+      "id": "Z-aggregate-tiling",
+      "version": null
+    },
+    {
+      "id": "Z-correctness-regression",
+      "version": null
+    }
+  ],
+  "depends_on": [],
+  "inputs": [
+    {
+      "id": "target-spec",
+      "kind": "design_document",
+      "path": "Z-agent/.z-agent/runs/run-softmax-example/documents/target-spec.md",
+      "media_type": "text/markdown",
+      "revision": null,
+      "sha256": null
+    }
+  ],
+  "outputs": [
+    {
+      "name": "tiling-design",
+      "kind": "design_document",
+      "path": "Z-agent/.z-agent/runs/run-softmax-example/artifacts/tiling-design.md",
+      "required": true
+    },
+    {
+      "name": "golden-report",
+      "kind": "test_report",
+      "path": "Z-agent/.z-agent/runs/run-softmax-example/artifacts/golden-report.json",
+      "required": true
+    }
+  ],
+  "scope": {
+    "repository_path": "Z-agent",
+    "base_revision": null,
+    "write_paths": [
+      "Z-agent/.z-agent/runs/run-softmax-example/artifacts"
+    ],
+    "read_only_paths": [
+      "Z-agent/docs",
+      "Z-agent/registry",
+      "Z-agent/agents"
+    ],
+    "constraints": [
+      "目标规格须明确 Shape、dtype、数值容差、工具链版本、可用存储空间及已确认的 Bank 约束。",
+      "没有硬件或官方证据的行为标为 pending；不冻结为事实。",
+      "本任务只写分析与验证产物，不修改产品源码。"
+    ]
+  },
+  "required_capabilities": [
+    "workspace.read",
+    "workspace.write",
+    "shell.execute",
+    "hardware.access"
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "tiling-design-check",
+      "description": "基于已确认目标规格，设计说明稳定计算步骤、尾块、资源界限和未知约束，独立审查通过。",
+      "verification_method": "document_review",
+      "required": true
+    },
+    {
+      "id": "golden-check",
+      "description": "在输入规格确定的 Shape/dtype/容差下，正常、尾块和边界用例与 Golden 比较通过，并保存实际测试计数与日志。",
+      "verification_method": "test",
+      "required": true
+    }
+  ],
+  "failure_policy": {
+    "max_attempts": 2,
+    "automatic_retry": "transient_only",
+    "escalation_role": "main-orchestrator"
+  },
+  "sop_ref": {
+    "role_id": "mlir-compiler-expert",
+    "version": "0.1.0",
+    "path": "Z-agent/examples/contracts/expert-sop.json",
+    "sha256": "734d2bff98ad4f58a37554f20b0afd919f388a573ae8a334c723b66ccb2fb691"
+  }
+}

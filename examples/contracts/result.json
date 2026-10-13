@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.3",
+  "task_id": "task-softmax-001",
+  "run_id": "run-softmax-example",
+  "attempt": 1,
+  "executor": {
+    "id": "agent-mlir-example",
+    "role_id": "mlir-compiler-expert"
+  },
+  "status": "blocked",
+  "summary": "未执行的契约示例：技能仍为 planned，目标规格与数值验收基线缺失，无法开展工程验证。 专家 SOP 也仅为未确认草案，未执行 SOP 步骤。",
+  "started_at": null,
+  "finished_at": null,
+  "artifacts": [],
+  "evidence": [],
+  "acceptance": [
+    {
+      "criterion_id": "tiling-design-check",
+      "outcome": "blocked",
+      "evidence_ids": [],
+      "reason": "目标资源和 Bank 约束未确认，且 Z-aggregate-tiling 尚无实现包。"
+    },
+    {
+      "criterion_id": "golden-check",
+      "outcome": "not_run",
+      "evidence_ids": [],
+      "reason": "缺少已验证技能、目标工具链及明确的 Shape/dtype/容差输入。"
+    }
+  ],
+  "blockers": [
+    {
+      "code": "capability_unavailable",
+      "description": "登记中的 Z-aggregate-tiling 和 Z-correctness-regression 均为 planned，没有可加载的版本。",
+      "required_action": "实现技能包，并在真实案例中验证后锁定适用版本。",
+      "retryable": false
+    },
+    {
+      "code": "missing_input",
+      "description": "目标规格和数值验收范围尚未提供。",
+      "required_action": "提供可核验的目标规格、工具链版本、Golden 数据或参考实现及验收容差。",
+      "retryable": false
+    },
+    {
+      "code": "unknown_hardware",
+      "description": "示例没有已确认的 Bank 映射或可访问目标。",
+      "required_action": "补充官方硬件依据与适用版本，或明确可进行的模拟验证范围。",
+      "retryable": false
+    },
+    {
+      "code": "missing_input",
+      "description": "引用的专家 SOP 为 draft，作者尚未核对，不能进入 ready。",
+      "required_action": "由负责专家总结并核对 SOP，保存真实作者、confirmed 状态及固定版本。",
+      "retryable": false
+    }
+  ],
+  "handoff": {
+    "resume_hint": "先补齐输入与技能实现；重新检查权限和版本后规划新的验证尝试。不要按本示例路径启动硬件命令。",
+    "checkpoint_path": "Z-agent/examples/contracts/checkpoint.json",
+    "pending_actions": [
+      "明确目标、工具链和验收输入。",
+      "完成并验证所需 Skill 实现。",
+      "根据真实能力重新检查任务规格；范围改变时创建新任务。",
+      "由负责专家总结并确认一版适用 SOP。"
+    ]
+  },
+  "sop_checks": []
+}

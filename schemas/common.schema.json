@@ -1,0 +1,1008 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://z-agent.invalid/schemas/0.3/common.schema.json",
+  "title": "Z-agent common types",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+    },
+    "workspace_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*[\\\\:\\r\\n])[^\\r\\n]+$"
+    },
+    "package_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*[\\\\:\\r\\n])[^\\r\\n]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-((?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*))?(?:\\+([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?$"
+    },
+    "revision": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}(?:[a-f0-9]{24})?$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "role_id": {
+      "type": "string",
+      "enum": [
+        "main-orchestrator",
+        "design-documentation-expert",
+        "mlir-compiler-expert",
+        "npu-rvv-expert",
+        "baremetal-runtime-expert",
+        "independent-reviewer"
+      ]
+    },
+    "artifact_kind": {
+      "type": "string",
+      "enum": [
+        "requirements_document",
+        "design_document",
+        "execution_document",
+        "skill_definition",
+        "task_spec",
+        "source_change",
+        "test_report",
+        "log",
+        "benchmark_report",
+        "ir_dump",
+        "runtime_state",
+        "review_report",
+        "analysis_document",
+        "other",
+        "sop_definition"
+      ]
+    },
+    "capability": {
+      "type": "string",
+      "enum": [
+        "workspace.read",
+        "workspace.write",
+        "shell.execute",
+        "agent.delegate",
+        "process.manage",
+        "network.read",
+        "git.worktree",
+        "hardware.access",
+        "state.persist"
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "kind": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/artifact_kind"
+        },
+        "path": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/revision"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "path",
+        "media_type",
+        "revision",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "author": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "usage": {
+          "type": "string",
+          "enum": [
+            "reference",
+            "adapted",
+            "copied"
+          ]
+        },
+        "verification": {
+          "type": "string",
+          "enum": [
+            "candidate",
+            "verified"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "author",
+        "version",
+        "revision",
+        "license",
+        "usage",
+        "verification"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "usage": {
+                "enum": [
+                  "adapted",
+                  "copied"
+                ]
+              }
+            },
+            "required": [
+              "usage"
+            ]
+          },
+          "then": {
+            "properties": {
+              "author": {
+                "type": "string",
+                "minLength": 1
+              },
+              "license": {
+                "type": "string",
+                "minLength": 1
+              },
+              "verification": {
+                "const": "verified"
+              }
+            },
+            "anyOf": [
+              {
+                "properties": {
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "revision": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "working_directory": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+        },
+        "started_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exit_code": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "passed",
+            "failed",
+            "expected_failure",
+            "skipped",
+            "not_run"
+          ]
+        },
+        "environment": {
+          "type": "object",
+          "properties": {
+            "tool_versions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "version": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name",
+                  "version"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0
+            },
+            "target": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "tool_versions",
+            "target"
+          ],
+          "additionalProperties": false
+        },
+        "test_counts": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "passed": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "failed": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "expected_failures": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "unexpected_passes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "skipped": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "disabled": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "passed",
+                "failed",
+                "expected_failures",
+                "unexpected_passes",
+                "skipped",
+                "disabled"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "command",
+        "working_directory",
+        "started_at",
+        "finished_at",
+        "exit_code",
+        "outcome",
+        "environment",
+        "test_counts"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "passed",
+                  "failed",
+                  "expected_failure"
+                ]
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "started_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "finished_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "exit_code": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "passed"
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "exit_code": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "skipped",
+                  "not_run"
+                ]
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "started_at": {
+                "type": "null"
+              },
+              "finished_at": {
+                "type": "null"
+              },
+              "exit_code": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "execution",
+            "reference",
+            "observation"
+          ]
+        },
+        "claim": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "hypothesis",
+            "pending"
+          ]
+        },
+        "artifact_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "recorded_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "execution": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/execution"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/source"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "claim",
+        "confidence",
+        "artifact_ids",
+        "recorded_at",
+        "execution",
+        "source"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "execution"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "execution": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/execution"
+              },
+              "source": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "reference"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "execution": {
+                "type": "null"
+              },
+              "source": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/source"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "observation"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "execution": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "confidence": {
+                "const": "verified"
+              }
+            },
+            "required": [
+              "confidence"
+            ]
+          },
+          "then": {
+            "properties": {
+              "recorded_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "reference"
+              },
+              "confidence": {
+                "const": "verified"
+              }
+            },
+            "required": [
+              "kind",
+              "confidence"
+            ]
+          },
+          "then": {
+            "properties": {
+              "source": {
+                "allOf": [
+                  {
+                    "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/source"
+                  },
+                  {
+                    "properties": {
+                      "verification": {
+                        "const": "verified"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "checkpoint": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.3"
+        },
+        "run_id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "task_id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed_actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "remaining_actions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "side_effects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "operation_key": {
+                "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "intended",
+                  "started",
+                  "confirmed",
+                  "unknown"
+                ]
+              },
+              "artifact_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "operation_key",
+              "description",
+              "status",
+              "artifact_ids"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "task_id",
+        "attempt",
+        "updated_at",
+        "completed_actions",
+        "remaining_actions",
+        "side_effects"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": "0.3"
+        },
+        "run_id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "event_id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "task_id": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attempt": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "task_created",
+            "dependency_ready",
+            "dispatch_started",
+            "execution_completed",
+            "task_blocked",
+            "execution_failed",
+            "review_completed",
+            "task_accepted",
+            "retry_scheduled",
+            "session_resumed",
+            "cancelled"
+          ]
+        },
+        "payload": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "schema_version",
+        "run_id",
+        "sequence",
+        "event_id",
+        "occurred_at",
+        "task_id",
+        "attempt",
+        "type",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "sop_ref": {
+      "type": "object",
+      "properties": {
+        "role_id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/role_id"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/version"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "path": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "role_id",
+        "version",
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "properties": {
+            "version": {
+              "type": "null"
+            },
+            "path": {
+              "type": "null"
+            },
+            "sha256": {
+              "type": "null"
+            }
+          }
+        },
+        {
+          "properties": {
+            "version": {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/version"
+            },
+            "path": {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/workspace_path"
+            },
+            "sha256": {
+              "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/sha256"
+            }
+          }
+        }
+      ]
+    },
+    "sop_check": {
+      "type": "object",
+      "properties": {
+        "rule_id": {
+          "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+        },
+        "outcome": {
+          "enum": [
+            "followed",
+            "not_applicable",
+            "blocked",
+            "violated",
+            "not_run"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "https://z-agent.invalid/schemas/0.3/common.schema.json#/$defs/id"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "outcome",
+        "evidence_ids",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "followed"
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "enum": [
+                  "not_applicable",
+                  "blocked",
+                  "violated",
+                  "not_run"
+                ]
+              }
+            },
+            "required": [
+              "outcome"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "skill_id": {
+      "type": "string",
+      "pattern": "^Z-[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+    }
+  }
+}

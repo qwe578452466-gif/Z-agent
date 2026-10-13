@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.3",
+  "id": "Z-example-skill",
+  "version": "0.1.0",
+  "kind": "documentation",
+  "status": "draft",
+  "entrypoint": "SKILL.md",
+  "activation": {
+    "when": [
+      "仅用于编写新 Skill 时复制和填写模板。"
+    ],
+    "unless": [
+      "用于实际工程执行或宣称已验证专业能力。"
+    ]
+  },
+  "inputs": [
+    {
+      "name": "goal",
+      "type": "text",
+      "required": true,
+      "description": "填写技能的实际目标、触发条件和边界。",
+      "schema_path": null
+    }
+  ],
+  "outputs": [
+    {
+      "name": "skill-document",
+      "type": "artifact",
+      "required": true,
+      "description": "待编写并验证的 Skill 正文及元数据。",
+      "schema_path": null
+    }
+  ],
+  "requirements": {
+    "capabilities": [
+      "workspace.read",
+      "workspace.write"
+    ],
+    "tools": [],
+    "environment_variables": []
+  },
+  "depends_on": [],
+  "sources": [],
+  "validation": {
+    "positive_cases": [],
+    "negative_cases": [],
+    "boundary_cases": [],
+    "engineering_cases": []
+  }
+}

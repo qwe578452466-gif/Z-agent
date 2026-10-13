@@ -1,0 +1,1 @@
+{"schema_version": "0.3", "run_id": "run-softmax-example", "sequence": 1, "event_id": "event-softmax-blocked-001", "occurred_at": "2026-10-13T00:00:00Z", "task_id": "task-softmax-001", "attempt": 1, "type": "task_blocked", "payload": {"result_path": "Z-agent/examples/contracts/result.json", "reason": "未执行的示例：技能实现和目标规格缺失。 专家 SOP 仍为 draft。"}}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.3",
+  "run_id": "run-softmax-example",
+  "updated_at": "2026-10-13T00:00:00Z",
+  "last_event_sequence": 1,
+  "baseline": {
+    "repository_path": "Z-agent",
+    "revision": null,
+    "design_document": null,
+    "execution_document": null
+  },
+  "events_path": "Z-agent/examples/contracts/events.jsonl",
+  "tasks": [
+    {
+      "task_id": "task-softmax-001",
+      "spec_path": "Z-agent/examples/contracts/task.json",
+      "status": "blocked",
+      "depends_on": [],
+      "attempt": 1,
+      "executor_id": "agent-mlir-example",
+      "last_result_path": "Z-agent/examples/contracts/result.json",
+      "last_checkpoint_path": "Z-agent/examples/contracts/checkpoint.json",
+      "review": null,
+      "last_error": "技能未实现，输入和目标硬件事实未确认；不能进入 ready。 SOP 尚未确认。"
+    }
+  ],
+  "decisions": []
+}
